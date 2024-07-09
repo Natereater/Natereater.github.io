@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>nrussell18 tournament tool</title>
+	<link rel="stylesheet" href="tourney_style.css">
+	<script src="tourneyscript.js" defer></script>
+</head>
+
+
+
+<body>
+
+
+	<img src="skinny_stickbug_logo.png" alt="stickbug logo" width="300" height="100">
+	<br>
+	<h3>ROUND ROBIN TOURNAMENT TOOL</h3>
+	
+
+	<label for="input_box">Enter participants (one line per participant):</label><br>
+	<textarea name="input_box" id="input_box" cols="50" rows="10"></textarea><br>
+
+
+	<label for="num_rounds">Number of rounds:</label>
+	<input type="number" id="num_rounds" name="num_rounds"
+       min="1" value="1">
+
+	<button id="generate_button" onclick="generate()">GENERATE</button>
+
+
+	<table id="standings">
+
+	</table>
+	
+
+	<div id="matches_div">
+
+	</div>
+
+
+</body>
+</html>

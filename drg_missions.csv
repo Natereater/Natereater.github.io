@@ -1,0 +1,7 @@
+Mission Type,Biome,Success,Length,Complexity,Hazard,Time,Anomaly,Warning-1,Warning-2,Credits,Secondary,Bonus Objectives
+Egg Hunt,Fungus Bogs,True,1,1,5.25,15:32,None,Parasites,Duck and Cover,5870,True,Machine Event-Core Stone
+Point Extraction,Glacial Strata,True,3,3,4,22:43,Rich Atmosphere,None,None,4800,True,None
+Elimination,Salt Pits,True,2,2,5.25,21:00,None,None,None,6200,True,None
+Elimination,Salt Pits,True,2,2,5,21:00,None,None,None,6200,True,None
+Elimination,Azure Weald,True,2,2,4,24:41,None,None,None,4586,True,None
+Industrial Sabotage,Azure Weald,True,2,2,4,29:41,None,None,None,4586,True,None
