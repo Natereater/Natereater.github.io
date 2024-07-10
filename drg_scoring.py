@@ -187,6 +187,21 @@ class MissionType:
         (DEEP_SCAN, 2, 3): 355,  # 5 scans
     }
 
+
+
+    OPTIONS_PER_TYPE = {
+        MINING: [(1,1), (2,1), (2,2), (3,2), (3,3)],
+        EGG_HUNT: [(1,1), (2,2), (3,2)],
+        ON_SITE_REFINING: [(2,2), (2,3)],
+        SALVAGE_OPERATION: [(2,2), (3,3)],
+        POINT_EXTRACTION: [(2,3), (3,3)],
+        ESCORT_DUTY: [(2,2), (2,3), (3,2), (3,3)],
+        ELIMINATION: [(2,2), (3,3)],
+        INDUSTRIAL_SABOTAGE: [(2,1), (2,2)],
+        DEEP_SCAN: [(1,2), (2,3)]
+    }
+
+
     EXPECTED_TIME = {
         (MINING, 1, 1): 16,  # 200 morkite
         (MINING, 2, 1): 18,  # 225 morkite
@@ -229,7 +244,7 @@ SECONDARY_VALUE = 77
 BONUS_OBJECTIVES = {
     "Korlok": 67,
     "Corruptor": 62,
-    "BET-C": 27,
+    "BETC": 27,
     "Machine Event": 50,
     "Core Stone": 52,
     "Rock Cracker": 48,

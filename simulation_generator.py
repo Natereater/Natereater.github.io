@@ -1,5 +1,7 @@
 import pandas as pd
 import drg_scoring
+import json
+import random
 
 
 # SIMULATION SUCCESS PROBABILITY
@@ -9,7 +11,6 @@ import drg_scoring
 
 class LeagueName:
     LEAF_LEAGUE = ("The Leaf Lovers League", "L3")
-    SALT_PITS = ("The Salt Pits", "SP")
     DIRT_DIGGERS = ("The Dirt Diggers League", "DDL")
     CAVE_CRAWLERS = ("The Cave Crawlers League", "CCL")
     MIGHTY_MINERS = ("The Mighty Miners League", "MML")
@@ -17,5 +18,147 @@ class LeagueName:
     HOXXES_CHALLENGERS = ("The Hoxxes Challengers League", "HCL")
     FORTMOON = ("The Fortmoon League", "14ML")
     CREUS_CHAMPS = ("The Creus Championship Series", "CCS")
+
+
+BONUS_OBJECTIVE_PROB = 0.15
+ANOMALY_PROB = 0.1
+
+
+def get_hazard(haz, haz_dev) -> float:
+    base = haz + (random.random() * 2 - 1) * haz_dev
+
+    if base < 1.5:
+        return 1
+    elif base < 2.5:
+        return 2
+    elif base < 3.5:
+        return 3
+    elif base < 4.5:
+        return 4
+    elif base < 5.125:
+        return 5
+    elif base < 5.375:
+        return 5.25
+    elif base < 5.625:
+        return 5.5
+    elif base < 5.875:
+        return 5.75
+    elif base < 6.125:
+        return 6
+    elif base < 6.375:
+        return 6.25
+    elif base < 6.625:
+        return 6.5
+    elif base < 6.875:
+        return 6.75
+    else:
+        return 7
+
+
+class League:
+    
+    def __init__(self, league_name):
+        self.league_name = league_name
+        random.seed()
+        
+        all_teams = pd.read_csv("drg_assets/all_league_teams.csv")
+        self.league_teams: pd.DataFrame = all_teams[all_teams["league"] == league_name]
+    
+
+    def generate_league_results(self):
+        
+        final_json = []
+
+        for i, row in self.league_teams.iterrows():
+            current_team = {}
+
+            current_team["name"] = row["name"]
+            current_team["missions"] = []
+
+            # Shuffled order of missions
+            shuffled_missions = drg_scoring.MissionType.ALL_LIST.copy()
+            random.shuffle(shuffled_missions)
+
+            # Fill out all 9 missions
+            for mission_type in shuffled_missions:
+                current_mission = {}
+
+                # =============
+                # BUILD THE MISSION
+                current_mission["Mission Type"] = mission_type
+                current_mission["Biome"] = drg_scoring.Biome.ALL_LIST[random.randint(0, len(drg_scoring.Biome.ALL_LIST) - 1)]
+
+                options = drg_scoring.MissionType.OPTIONS_PER_TYPE[mission_type]
+                picked_option = options[random.randint(0, len(options) - 1)]
+
+                current_mission["Length"] = picked_option[0]
+                current_mission["Complexity"] = picked_option[1]
+
+                current_mission["Hazard"] = get_hazard(row["haz"], row["haz_dev"])
+
+                if random.random() < ANOMALY_PROB:
+                    current_mission["Anomaly"] = drg_scoring.Anomaly.ALL_LIST[random.randint(0, len(drg_scoring.Anomaly.ALL_LIST) - 1)]
+                else:
+                    current_mission["Anomaly"] = "None"
+
+                if random.random() < row["warning_prob"]:
+                    current_mission["Warning-1"] = drg_scoring.Warning.ALL_LIST[random.randint(0, len(drg_scoring.Warning.ALL_LIST) - 1)]
+                else:
+                    current_mission["Warning-1"] = "None"
+
+                if random.random() < row["warning_prob"]:
+                    current_mission["Warning-2"] = drg_scoring.Warning.ALL_LIST[random.randint(0, len(drg_scoring.Warning.ALL_LIST) - 1)]
+                else:
+                    current_mission["Warning-2"] = "None"
+
+                time = drg_scoring.MissionType.EXPECTED_TIME[(mission_type, current_mission["Length"], current_mission["Complexity"])]
+                time += row["time_diff"] + (random.random() * 2 - 1) * row["time_dev"]
+
+                current_mission["Time"] = str(int(time)) + ":" + str(int((time - float(int(time))) * 60))
+                current_mission["Credits"] = int(row["credits"] + ((random.random() * 2 - 1) * row["credits_dev"]))
+
+                current_mission["Secondary"] = "False"
+                if random.random() < row["secondary_prob"]:
+                    current_mission["Secondary"] = "True"
+                
+                current_mission["Success"] = "True"
+
+                current_mission["Bonus Objectives"] = "None"
+                if random.random() < BONUS_OBJECTIVE_PROB:
+                    current_mission["Bonus Objectives"] = list(drg_scoring.BONUS_OBJECTIVES.keys())[random.randint(0,len(drg_scoring.BONUS_OBJECTIVES.keys()) - 1)]
+                
+                # =============
+                # SCORING
+
+                score = drg_scoring.get_mission_score(pd.Series(current_mission))
+
+                # determine whether this is a success
+                # percent_chance = 102 - 2 ^ (score / p_value) + score / (p_value / 2)
+                percent_success = 102 - 2 ** (score / row["p_value"]) + score / (row["p_value"] / 2)
+                if random.random() * 100 > percent_success:
+                    current_mission["Success"] = "False"
+                    score = 0
+                
+                current_mission["Score"] = score
+
+                current_team["missions"].append(current_mission)
+            
+            final_json.append(current_team)
+        
+        with open('drg_assets/league_results.json', 'w') as f:
+            json.dump(final_json, f)
+
+
+
+
+league = League("CCS")
+league.generate_league_results()
+
+
+
+
+
+
+
 
 
