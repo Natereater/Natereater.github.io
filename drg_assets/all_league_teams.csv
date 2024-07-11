@@ -2,20 +2,20 @@ name,league,p_value,haz,haz_dev,credits,credits_dev,time_diff,time_dev,warning_p
 The Nitranauts,CCS,2700,6.25,0.5,7600,1000,-4,3,0.48,0.98
 The Umaknights,CCS,2500,6.4,0.3,7700,800,-3.2,4,0.53,0.92
 The Hexawings,CCS,3000,5.9,0.35,8200,670,-5.2,4.3,0.45,0.88
-Glyphid Gang,DDL,1100,4.6,0.51,4540,620,4.1,2.5,0.21,0.61
-The Dreadbursters,DDL,980,4.64,0.45,4400,380,3.8,2,0.17,0.57
-The Webweavers,DDL,1010,4.6,0.51,4600,340,4.2,3.7,0.19,0.6
-The Flarefighters,DDL,940,4.4,0.2,3650,820,2.3,4.2,0.23,0.61
-Hardhat Hegemony,DDL,1080,4.7,0.43,3900,620,4.3,5,0.16,0.44
-The Mollymorphs,DDL,1040,4.5,0.5,4000,700,4.9,3.6,0.2,0.54
-The Omorons,L3,570,3.9,0.5,3050,450,12,5,0.05,0.32
-Greenbeards United,L3,600,4,0.2,3300,300,11,5,0.02,0.28
-The Sandstoners,L3,610,4,0.2,3700,250,8,2,0.1,0.3
-The Purple Praetorians,L3,550,3.8,0.5,3200,600,15,7.5,0,0.1
-The Leech Lovers,L3,620,4,0.2,3950,270,7,2,0.1,0.33
-The Barrelkickers,L3,660,4,0.2,4000,360,7.5,2.5,0.1,0.36
-The Silicate Soldiers,L3,610,4.3,0.6,4100,430,6.7,1.2,0.3,0.6
-Definitely Dwarves not Robots,L3,1024,4,0,4096,0,8,0,0.125,0.5
-Space Rig Geology Club,L3,590,3.7,0.45,3250,310,7.2,3.1,0.11,0.23
-Red Sugar Anonymous,L3,630,3.6,0.3,2980,520,6.9,1.7,0.21,0.25
-Kursite Kingdom,L3,585,4,0.2,3310,620,13,4.5,0.13,0.31
+Glyphid Gang,CCL,1100,4.6,0.51,4540,620,4.1,2.5,0.21,0.61
+The Dreadbursters,CCL,980,4.64,0.45,4400,380,3.8,2,0.17,0.57
+The Webweavers,CCL,1010,4.6,0.51,4600,340,4.2,3.7,0.19,0.6
+The Flarefighters,CCL,940,4.4,0.2,3650,820,2.3,4.2,0.23,0.61
+Hardhat Hegemony,CCL,1080,4.7,0.43,3900,620,4.3,5,0.16,0.44
+The Mollymorphs,CCL,1040,4.5,0.5,4000,700,4.9,3.6,0.2,0.54
+The Omorons,DDL,570,3.9,0.5,3050,450,12,5,0.05,0.32
+Greenbeards United,DDL,600,4,0.2,3300,300,11,5,0.02,0.28
+The Sandstoners,DDL,610,4,0.2,3700,250,8,2,0.1,0.3
+The Purple Praetorians,DDL,550,3.8,0.5,3200,600,15,7.5,0,0.1
+The Leech Lovers,DDL,620,4,0.2,3950,270,7,2,0.1,0.33
+The Barrelkickers,DDL,660,4,0.2,4000,360,7.5,2.5,0.1,0.36
+The Silicate Soldiers,DDL,610,4.3,0.6,4100,430,6.7,1.2,0.3,0.6
+Definitely Dwarves not Robots,DDL,1024,4,0,4096,0,8,0,0.125,0.5
+Space Rig Geology Club,DDL,590,3.7,0.45,3250,310,7.2,3.1,0.11,0.23
+Red Sugar Anonymous,DDL,630,3.6,0.3,2980,520,6.9,1.7,0.21,0.25
+Kursite Kingdom,DDL,585,4,0.2,3310,620,13,4.5,0.13,0.31

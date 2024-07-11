@@ -10,7 +10,6 @@ import random
 # desmos: y=102\ -\ 2^{\frac{x}{c}}+\frac{x}{\frac{c}{2}}
 
 class LeagueName:
-    LEAF_LEAGUE = ("The Leaf Lovers League", "L3")
     DIRT_DIGGERS = ("The Dirt Diggers League", "DDL")
     CAVE_CRAWLERS = ("The Cave Crawlers League", "CCL")
     MIGHTY_MINERS = ("The Mighty Miners League", "MML")
@@ -55,6 +54,27 @@ def get_hazard(haz, haz_dev) -> float:
         return 7
 
 
+# Best 5 scores + 1/2 of 6th best score and 1/4 of 7th best
+def get_cumulative_score(scores) -> int:
+    copy_of_scores: list = scores.copy()
+    copy_of_scores.sort(reverse=True)
+
+    i = 0
+    cumulative = 0
+    while i < 5 and i < len(copy_of_scores):
+        cumulative += copy_of_scores[i]
+        i += 1
+    
+    if len(copy_of_scores) >= 6:
+        cumulative += 0.5 * copy_of_scores[5]
+    
+    if len(copy_of_scores) >= 7:
+        cumulative += 0.25 * copy_of_scores[6]
+    
+    return int(cumulative)
+
+
+
 class League:
     
     def __init__(self, league_name):
@@ -74,6 +94,8 @@ class League:
 
             current_team["name"] = row["name"]
             current_team["missions"] = []
+            current_team["cumulative_score"] = [0]
+            current_team["scores"] = []
 
             # Shuffled order of missions
             shuffled_missions = drg_scoring.MissionType.ALL_LIST.copy()
@@ -141,6 +163,8 @@ class League:
                 
                 current_mission["Score"] = score
 
+                current_team["scores"].append(score)
+                current_team["cumulative_score"].append(get_cumulative_score(current_team["scores"]))
                 current_team["missions"].append(current_mission)
             
             final_json.append(current_team)
@@ -151,7 +175,7 @@ class League:
 
 
 
-league = League("CCS")
+league = League("CCL")
 league.generate_league_results()
 
 
