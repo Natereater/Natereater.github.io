@@ -1,6 +1,7 @@
 import pandas as pd
 import drg_scoring
 import json
+import sys
 import random
 
 
@@ -174,9 +175,13 @@ class League:
 
 
 
-
-league = League("CCL")
-league.generate_league_results()
+if __name__ == "__main__":
+    if len(sys.argv) > 1:
+        league = League(sys.argv[1])
+        league.generate_league_results()
+    else:
+        print("requires a parameter of league name")
+    
 
 
 

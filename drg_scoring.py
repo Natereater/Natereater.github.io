@@ -363,7 +363,7 @@ def main():
     if len(sys.argv) > 1:
         print(display_scores(sys.argv[1]))
     else:
-        print("requires second parameter of csv filename")
+        print("requires a parameter of csv filename")
 
 
 
