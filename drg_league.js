@@ -111,3 +111,5 @@ function load_standings()
     standings_table.innerHTML = build_string;
     console.log("Done with load_standings()");
 }
+
+load_standings();
