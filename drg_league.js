@@ -9,7 +9,7 @@ const MISSION_TYPES = [
     "Elimination",
     "Industrial Sabotage",
     "Deep Scan"
-]
+];
 
 
 async function get_json(filename)
