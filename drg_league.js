@@ -23,6 +23,8 @@ function load_standings()
 {
     
     console.log("Running load_standings()");
+    console.log(this.MISSION_TYPES);
+
 
     let standings_table = document.getElementById("standings");
     let build_string = "<tr><th>PLACE</th><th>NAME</th><th>SCORE</th>";
