@@ -1,34 +1,40 @@
 
-const MISSION_TYPES = [
-    "Mining Expedition",
-    "Egg Hunt",
-    "On-Site Refining",
-    "Salvage Operation",
-    "Point Extraction",
-    "Escort Duty",
-    "Elimination",
-    "Industrial Sabotage",
-    "Deep Scan"
-];
 
-
-async function get_json(filename)
+function get_json(filename)
 {
-    let retrieved_json = await fetch("http://Natereater.github.io/" + filename);
-    return await retrieved_json.json();
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "http://natereater.github.io/" + filename, false);
+    xhr.send();
+    if (xhr.status == 200)
+    {
+        return JSON.parse(xhr.responseText);
+    }
+
+    // let retrieved_json = await fetch("http://Natereater.github.io/" + filename);
 }
 
 
 function load_standings()
 {
+
+    const MISSION_TYPES = [
+        "Mining Expedition",
+        "Egg Hunt",
+        "On-Site Refining",
+        "Salvage Operation",
+        "Point Extraction",
+        "Escort Duty",
+        "Elimination",
+        "Industrial Sabotage",
+        "Deep Scan"
+    ];
+
     
     console.log("Running load_standings()");
-    console.log(this.MISSION_TYPES);
-
 
     let standings_table = document.getElementById("standings");
     let build_string = "<tr><th>PLACE</th><th>NAME</th><th>SCORE</th>";
-    for (mission_type of this.MISSION_TYPES)
+    for (mission_type of MISSION_TYPES)
     {
         build_string += "<th>" + mission_type + "</th>";
     }
@@ -40,6 +46,7 @@ function load_standings()
     console.log(league_results);
     console.log("personal_results");
     console.log(personal_results);
+    console.log(personal_results["scores"]);
 
     let N_RUNS = personal_results["scores"].length;
 
@@ -56,10 +63,10 @@ function load_standings()
         let max_score = 0;
         for (let j = 0; j < all_participants.length; j++)
         {
-            if (all_participants["cumulative_score"][N_RUNS] > max_score)
+            if (all_participants[j]["cumulative_score"][N_RUNS] > max_score)
             {
                 best = j;
-                max_score = all_participants["cumulative_score"][N_RUNS];
+                max_score = all_participants[j]["cumulative_score"][N_RUNS];
             }
         }
 
@@ -69,7 +76,7 @@ function load_standings()
 
     
     // populate the main rows
-    for (let team = 0; team < all_participants.length; team++)
+    for (let team = 0; team < sorted_participants.length; team++)
     {
         // Set standing number
         build_string += "<tr>";
@@ -94,7 +101,7 @@ function load_standings()
             mission_list[each_mission["Mission Type"]] = each_mission;
         }
 
-        for (mission_type of this.MISSION_TYPES)
+        for (mission_type of MISSION_TYPES)
         {
             if (mission_type in mission_list)
             {
