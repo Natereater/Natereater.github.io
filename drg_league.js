@@ -1,5 +1,5 @@
 
-var MISSION_TYPES = [
+const MISSION_TYPES = [
     "Mining Expedition",
     "Egg Hunt",
     "On-Site Refining",
@@ -23,7 +23,7 @@ function load_standings()
 {
     let standings_table = document.getElementById("standings");
     let build_string = "<tr><th>PLACE</th><th>NAME</th><th>SCORE</th>";
-    for (mission_type of MISSION_TYPES)
+    for (mission_type of this.MISSION_TYPES)
     {
         build_string += "<th>" + mission_type + "</th>";
     }
@@ -85,7 +85,7 @@ function load_standings()
             mission_list[each_mission["Mission Type"]] = each_mission;
         }
 
-        for (mission_type of MISSION_TYPES)
+        for (mission_type of this.MISSION_TYPES)
         {
             if (mission_type in mission_list)
             {
@@ -104,3 +104,5 @@ function load_standings()
     standings_table.innerHTML = build_string;
 }
 
+
+load_standings();
