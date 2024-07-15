@@ -80,7 +80,11 @@ function load_standings()
     {
         // Set standing number
         build_string += "<tr>";
-        if (team > 0 && sorted_participants[team - 1]["cumulative_score"][N_RUNS] > sorted_participants[team]["cumulative_score"][N_RUNS])
+        if (team == 0)
+        {
+            build_string += "<td>1</td>";
+        }
+        else if (sorted_participants[team - 1]["cumulative_score"][N_RUNS] > sorted_participants[team]["cumulative_score"][N_RUNS])
         {
             build_string += "<td>" + String(team + 1) + "</td>";
         }
