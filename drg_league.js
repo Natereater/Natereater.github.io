@@ -104,5 +104,3 @@ function load_standings()
     standings_table.innerHTML = build_string;
 }
 
-
-load_standings()
