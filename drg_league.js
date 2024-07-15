@@ -1,5 +1,5 @@
 
-MISSION_TYPES = [
+const MISSION_TYPES = [
     "Mining Expedition",
     "Egg Hunt",
     "On-Site Refining",
