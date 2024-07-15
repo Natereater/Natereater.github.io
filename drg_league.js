@@ -112,4 +112,9 @@ function load_standings()
     console.log("Done with load_standings()");
 }
 
-load_standings();
+
+
+
+window.onload = function() {
+    load_standings();
+  };
