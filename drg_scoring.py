@@ -153,38 +153,38 @@ class MissionType:
 
 
     DIFFICULTIES = {
-        (MINING, 1, 1): 295, # 200 morkite
+        (MINING, 1, 1): 300, # 200 morkite
         (MINING, 2, 1): 315, # 225 morkite
         (MINING, 2, 2): 330, # 250 morkite
-        (MINING, 3, 2): 360, # 325 morkite
-        (MINING, 3, 3): 390, # 400 morkite
+        (MINING, 3, 2): 355, # 325 morkite
+        (MINING, 3, 3): 380, # 400 morkite
 
-        (EGG_HUNT, 1, 1): 295, # 4 eggs
+        (EGG_HUNT, 1, 1): 300, # 4 eggs
         (EGG_HUNT, 2, 2): 340, # 6 eggs
         (EGG_HUNT, 3, 2): 375, # 8 eggs
 
         (ON_SITE_REFINING, 2, 2): 350,
-        (ON_SITE_REFINING, 2, 3): 370,
+        (ON_SITE_REFINING, 2, 3): 365,
 
         (SALVAGE_OPERATION, 2, 2): 340,  # 2 mules
-        (SALVAGE_OPERATION, 3, 3): 365,  # 3 mules
+        (SALVAGE_OPERATION, 3, 3): 360,  # 3 mules
 
         (POINT_EXTRACTION, 2, 3): 335,  # 7 aquarqs
-        (POINT_EXTRACTION, 3, 3): 375,  # 10 aquarqs
+        (POINT_EXTRACTION, 3, 3): 370,  # 10 aquarqs
 
         (ESCORT_DUTY, 2, 2): 360,  # 1 refuel
         (ESCORT_DUTY, 2, 3): 370,  # 1 refuel
-        (ESCORT_DUTY, 3, 2): 395,  # 2 refuels
-        (ESCORT_DUTY, 3, 3): 405,  # 2 refuels
+        (ESCORT_DUTY, 3, 2): 385,  # 2 refuels
+        (ESCORT_DUTY, 3, 3): 395,  # 2 refuels
 
         (ELIMINATION, 2, 2): 335,  # 2 Dreadnoughts
-        (ELIMINATION, 3, 3): 385,  # 3 Dreadnoughts
+        (ELIMINATION, 3, 3): 380,  # 3 Dreadnoughts
 
-        (INDUSTRIAL_SABOTAGE, 2, 1): 405,  # 2 power stations
-        (INDUSTRIAL_SABOTAGE, 2, 2): 430,  # 2 power stations
+        (INDUSTRIAL_SABOTAGE, 2, 1): 390,  # 2 power stations
+        (INDUSTRIAL_SABOTAGE, 2, 2): 400,  # 2 power stations
 
         (DEEP_SCAN, 1, 2): 325,  # 3 scans
-        (DEEP_SCAN, 2, 3): 355,  # 5 scans
+        (DEEP_SCAN, 2, 3): 350,  # 5 scans
     }
 
 

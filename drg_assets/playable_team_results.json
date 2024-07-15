@@ -1,0 +1,82 @@
+{
+  "name": "The Drillbeards",
+  "missions": [
+    {
+      "Mission Type": "Elimination",
+      "Biome": "Azure Weald",
+      "Success": true,
+      "Length": 2,
+      "Complexity": 2,
+      "Hazard": 5,
+      "Anomaly": "None",
+      "Warning-1": "None",
+      "Warning-2": "None",
+      "Credits": 4536,
+      "Secondary": true,
+      "Time": "34:41",
+      "Bonus Objectives": "Nemesis",
+      "Score": 4215
+    },
+    {
+      "Mission Type": "Salvage Operation",
+      "Biome": "Magma Core",
+      "Success": true,
+      "Length": 3,
+      "Complexity": 3,
+      "Hazard": 5,
+      "Anomaly": "None",
+      "Warning-1": "Swarmageddon",
+      "Warning-2": "None",
+      "Credits": 5350,
+      "Secondary": false,
+      "Time": "22:40",
+      "Bonus Objectives": "None",
+      "Score": 6034
+    },
+    {
+      "Mission Type": "Egg Hunt",
+      "Biome": "Dense Biozone",
+      "Success": true,
+      "Length": 2,
+      "Complexity": 2,
+      "Hazard": 4,
+      "Anomaly": "None",
+      "Warning-1": "None",
+      "Warning-2": "None",
+      "Credits": 4787,
+      "Secondary": true,
+      "Time": "18:12",
+      "Bonus Objectives": "Core Stone",
+      "Score": 3634
+    },
+    {
+      "Mission Type": "On-Site Refining",
+      "Biome": "Crystalline Caverns",
+      "Success": true,
+      "Length": 2,
+      "Complexity": 2,
+      "Hazard": 4,
+      "Anomaly": "None",
+      "Warning-1": "None",
+      "Warning-2": "None",
+      "Credits": 3507,
+      "Secondary": false,
+      "Time": "16:39",
+      "Bonus Objectives": "None",
+      "Score": 3052
+    }
+  ],
+  "scores": [
+    4215,
+    6034,
+    3634,
+    3052
+  ],
+  "cumulative_score": [
+    0,
+    4215,
+    10249,
+    13883,
+    16935
+  ]
+}
