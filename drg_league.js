@@ -1,5 +1,5 @@
 
-const MISSION_TYPES = [
+var MISSION_TYPES = [
     "Mining Expedition",
     "Egg Hunt",
     "On-Site Refining",
