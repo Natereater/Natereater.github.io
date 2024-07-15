@@ -21,6 +21,9 @@ async function get_json(filename)
 
 function load_standings()
 {
+    
+    console.log("Running load_standings()");
+
     let standings_table = document.getElementById("standings");
     let build_string = "<tr><th>PLACE</th><th>NAME</th><th>SCORE</th>";
     for (mission_type of this.MISSION_TYPES)
@@ -31,6 +34,10 @@ function load_standings()
 
     const league_results = get_json('drg_assets/league_results.json');
     const personal_results = get_json("drg_assets/playable_team_results.json");
+    console.log("league_results");
+    console.log(league_results);
+    console.log("personal_results");
+    console.log(personal_results);
 
     let N_RUNS = personal_results["scores"].length;
 
@@ -102,6 +109,7 @@ function load_standings()
 
 
     standings_table.innerHTML = build_string;
+    console.log("Done with load_standings()");
 }
 
 
