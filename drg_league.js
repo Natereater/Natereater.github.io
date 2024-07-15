@@ -3,7 +3,7 @@
 function get_json(filename)
 {
     const xhr = new XMLHttpRequest();
-    xhr.open("GET", "http://natereater.github.io/" + filename, false);
+    xhr.open("GET", "https://natereater.github.io/" + filename, false);
     xhr.send();
     if (xhr.status == 200)
     {
