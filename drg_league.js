@@ -161,7 +161,18 @@ function load_results()
             build_string += "<td style=\"text-align:center;\">" + '<img src="drg_assets/images/' + each_team["missions"][i]["Mission Type"] + '_icon.webp" alt="'  + each_team["missions"][i]["Mission Type"] + '" width="32" height="32">' + "</td>";
             for (field of FIELDS_LIST)
             {
-                build_string += "<td>" + each_team["missions"][i][field] + "</td>";
+                if (field == "Length")
+                {
+                    build_string += "<td style=\"text-align:center;\">" + '<img src="drg_assets/images/length_' + String(each_team["missions"][i]["Length"]) + '.webp" alt="'  + String(each_team["missions"][i]["Length"]) + '" width="60" height="24">' + "</td>";
+                }
+                else if (field == "Complexity")
+                {
+                    build_string += "<td style=\"text-align:center;\">" + '<img src="drg_assets/images/complexity_' + String(each_team["missions"][i]["Complexity"]) + '.webp" alt="'  + String(each_team["missions"][i]["Complexity"]) + '" width="60" height="24">' + "</td>";
+                }
+                else
+                {
+                    build_string += "<td>" + each_team["missions"][i][field] + "</td>";
+                }
             }
             build_string += "</tr>";
         }
