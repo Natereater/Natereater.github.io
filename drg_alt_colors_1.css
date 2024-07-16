@@ -1,0 +1,113 @@
+@import url('http://fonts.cdnfonts.com/css/porter');
+@import url('https://fonts.cdnfonts.com/css/ubuntu-mono');
+
+:root 
+{
+    --darkest: #071402;
+    --second: #0C2605;
+    --third: #2E590E;
+    --bright: #548C1C;
+    --brightest: #8EBF24;
+}
+
+
+
+
+body
+{
+    background-color: var(--darkest);
+    font-family: 'Ubuntu Mono', sans-serif;
+}
+
+
+
+h2
+{
+    color: var(--bright);
+}
+
+h3
+{
+    color: var(--bright);
+}
+
+h4
+{
+    color: var(--bright);
+}
+
+
+
+#standings
+{
+    border: 0px solid black;
+    border-spacing: 4px;
+    padding: 4px;
+}
+
+#standings th
+{
+    background-color: var(--third);
+    padding: 10px;
+    color: var(--brightest);
+}
+
+#standings td
+{
+    background-color: var(--second);
+    padding: 10px;
+    color: var(--brightest);
+}
+
+/* #standings td:hover
+{
+    background-color: #4D7850;
+    color: white;
+} */
+
+
+
+#results table
+{
+    border: 0px solid black;
+    border-spacing: 4px;
+    padding: 4px;
+}
+
+#results td
+{
+    background-color: var(--second);
+    padding: 10px 16px;
+    color: var(--brightest);
+}
+
+#results th
+{
+    background-color: var(--third);
+    padding: 10px;
+    color: var(--brightest);
+}
+
+
+/* #results td:hover
+{
+    background-color: #4D7850;
+    padding: 10px 16px;
+    color: white;
+}
+
+.selected:hover
+{
+    background-color: #EFB34C !important;
+    padding: 10px 16px;
+    color: #70490A !important;
+}
+
+.unselected:hover
+{
+    background-color: #4D7850 !important;
+    padding: 10px 16px;
+    color: white !important;
+} */
+
+
