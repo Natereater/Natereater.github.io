@@ -148,7 +148,8 @@ class League:
 
                 current_mission["Bonus Objectives"] = "None"
                 if random.random() < BONUS_OBJECTIVE_PROB:
-                    current_mission["Bonus Objectives"] = list(drg_scoring.BONUS_OBJECTIVES.keys())[random.randint(0,len(drg_scoring.BONUS_OBJECTIVES.keys()) - 1)]
+                    # Can't be None or Doretta Head
+                    current_mission["Bonus Objectives"] = list(drg_scoring.BONUS_OBJECTIVES.keys())[random.randint(0,len(drg_scoring.BONUS_OBJECTIVES.keys()) - 3)]
                 
                 # =============
                 # SCORING

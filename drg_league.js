@@ -36,7 +36,7 @@ function load_standings()
     let build_string = "<tr><th>PLACE</th><th>NAME</th><th>SCORE</th>";
     for (mission_type of MISSION_TYPES)
     {
-        build_string += "<th>" + mission_type + "</th>";
+        build_string += "<th>" + '<img src="drg_assets/images/' + mission_type + '_icon.webp" alt="'  + mission_type + '" width="40" height="40">' + "</th>";
     }
     build_string += "</tr>";
 
@@ -128,6 +128,53 @@ function load_standings()
 
 
 
+
+function load_results()
+{
+    let FIELDS_LIST =["Score","Biome","Success","Length","Complexity","Hazard","Anomaly","Warning-1","Warning-2","Credits","Secondary","Time","Bonus Objectives"];
+    let results_div = document.getElementById("results");
+    let build_string = "";
+
+    const league_results = get_json('drg_assets/league_results.json');
+    const personal_results = get_json("drg_assets/playable_team_results.json");
+    let N_RUNS = personal_results["scores"].length;
+
+    let all_teams = [...league_results];
+    all_teams.splice(0, 0, personal_results);
+
+
+    for (each_team of all_teams)
+    {
+        // Mission Type,Biome,Success,Length,Complexity,Hazard,Anomaly,Warning-1,Warning-2,Credits,Secondary,Time,Bonus Objectives
+        build_string += "<br><h4>" + each_team["name"] + "</h4><table><tr>";
+        build_string += "<th>#</th>";
+        build_string += "<th>Mission Type</th>";
+        for (field of FIELDS_LIST)
+        {
+            build_string += "<th>" + field + "</th>";
+        }
+        build_string += "</tr>";
+
+        for (let i = 0; i < N_RUNS; i++)
+        {
+            build_string += "<tr><td>" + String(i + 1) + "</td>";
+            build_string += "<td style=\"text-align:center;\">" + '<img src="drg_assets/images/' + each_team["missions"][i]["Mission Type"] + '_icon.webp" alt="'  + each_team["missions"][i]["Mission Type"] + '" width="32" height="32">' + "</td>";
+            for (field of FIELDS_LIST)
+            {
+                build_string += "<td>" + each_team["missions"][i][field] + "</td>";
+            }
+            build_string += "</tr>";
+        }
+        build_string += "</table>";
+    }
+
+    results_div.innerHTML = build_string;
+}
+
+
+
+
 window.onload = function() {
     load_standings();
+    load_results();
   };
