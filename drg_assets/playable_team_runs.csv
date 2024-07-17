@@ -1,2 +1,3 @@
 Mission Type,Biome,Success,Length,Complexity,Hazard,Anomaly,Warning-1,Warning-2,Credits,Secondary,Time,Bonus Objectives
 Industrial Sabotage,Salt Pits,True,2,2,4,None,Parasites,None,8196,True,34:56,Core Stone
+Deep Scan,Dense Biozone,True,1,2,4,None,None,None,4259,False,26:44,Core Stone
