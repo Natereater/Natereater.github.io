@@ -23,6 +23,9 @@ class LeagueName:
 BONUS_OBJECTIVE_PROB = 0.15
 ANOMALY_PROB = 0.1
 
+SAVE_TO = 'drg_assets/league_results.json'
+SAVE_TO = 'drg_assets/temp_results.json'
+
 
 def get_hazard(haz, haz_dev) -> float:
     base = haz + (random.random() * 2 - 1) * haz_dev
@@ -171,7 +174,7 @@ class League:
             
             final_json.append(current_team)
         
-        with open('drg_assets/league_results.json', 'w') as f:
+        with open(SAVE_TO, 'w') as f:
             json.dump(final_json, f)
 
 
