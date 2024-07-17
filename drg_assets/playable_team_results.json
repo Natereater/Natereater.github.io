@@ -1,1 +1,1 @@
-{"name": "The Drillbeards", "missions": [], "scores": [], "cumulative_score": [0]}
+{"name": "The Drillbeards", "missions": [{"Mission Type": "Industrial Sabotage", "Biome": "Salt Pits", "Success": true, "Length": 2, "Complexity": 2, "Hazard": 4, "Anomaly": "None", "Warning-1": "Parasites", "Warning-2": "None", "Credits": 8196, "Secondary": true, "Time": "34:56", "Bonus Objectives": "Core Stone", "Score": 4649}], "scores": [4649], "cumulative_score": [0, 4649]}
