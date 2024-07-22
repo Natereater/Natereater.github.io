@@ -23,8 +23,8 @@ function load_results()
     let results_div = document.getElementById("results");
     let build_string = "";
 
-    const history = get_json("drg_assets/history.json");
-    const N_RUNS = history.length;
+    let history = get_json("drg_assets/history.json");
+    let N_RUNS = history.length;
 
 
     // Mission Type,Biome,Success,Length,Complexity,Hazard,Anomaly,Warning-1,Warning-2,Credits,Secondary,Time,Bonus Objectives
