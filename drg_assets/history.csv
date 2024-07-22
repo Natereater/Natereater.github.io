@@ -1,0 +1,9 @@
+Mission Type,Biome,Success,Length,Complexity,Hazard,Anomaly,Warning-1,Warning-2,Credits,Secondary,Time,Bonus Objectives
+Elimination,Azure Weald,True,2,2,5,None,None,None,4536,True,34:41,Nemesis
+Salvage Operation,Magma Core,True,3,3,5,None,Swarmageddon,None,5350,False,22:40,None
+Egg Hunt,Dense Biozone,True,2,2,4,None,None,None,4787,True,18:12,Core Stone
+On-Site Refining,Crystalline Caverns,True,2,2,4,None,None,None,3507,False,16:39,None
+Industrial Sabotage,Salt Pits,True,2,2,4,None,Parasites,None,8196,True,34:56,Core Stone
+Deep Scan,Dense Biozone,True,1,2,4,None,None,None,4259,False,26:44,Core Stone
+Elimination,Sandblasted Corridors,True,2,2,5,None,None,None,2808,False,14:10,None
+Egg Hunt,Hollow Bough,True,3,2,5.25,Golden Bugs,None,None,6542,False,17:50,Machine Event

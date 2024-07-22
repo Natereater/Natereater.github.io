@@ -1,53 +1,40 @@
 @import url('http://fonts.cdnfonts.com/css/porter');
+@import url('https://fonts.cdnfonts.com/css/ubuntu-mono');
 
-body
+:root 
 {
-    background-color: #123731;
-    font-family: 'Porter', sans-serif;
+    --darkest: #071402;
+    --second: #0C2605;
+    --third: #2E590E;
+    --bright: #548C1C;
+    --brightest: #8EBF24;
 }
 
 
+
+
+body
+{
+    background-color: var(--darkest);
+    font-family: 'Ubuntu Mono', sans-serif;
+}
+
+
+
+h2
+{
+    color: var(--bright);
+}
+
 h3
 {
-    color: #9CCA91;
+    color: var(--bright);
 }
 
 h4
 {
-    color: #9CCA91;
+    color: var(--bright);
 }
-
-textarea
-{
-    background-color: #4D7850;
-    color: white;
-    border: none;
-    outline: none;
-}
-
-label
-{
-    color: white;
-}
-
-#num_rounds
-{
-    background-color: #194A40;
-    color: white;
-    border: none;
-    outline: none;
-    padding: 5px;
-}
-
-#generate_button
-{
-    background-color: #4D7850;
-    color: white;
-    border: none;
-    outline: none;
-    padding: 5px;
-}
-
 
 
 
@@ -60,16 +47,16 @@ label
 
 #standings th
 {
-    background-color: #4D7850;
+    background-color: var(--third);
     padding: 10px;
-    color: white;
+    color: var(--brightest);
 }
 
 #standings td
 {
-    background-color: #194A40;
+    background-color: var(--second);
     padding: 10px;
-    color: white;
+    color: var(--brightest);
 }
 
 /* #standings td:hover
@@ -89,16 +76,16 @@ label
 
 #results td
 {
-    background-color: #194A40;
+    background-color: var(--second);
     padding: 10px 16px;
-    color: white;
+    color: var(--brightest);
 }
 
 #results th
 {
-    background-color: #4D7850;
+    background-color: var(--third);
     padding: 10px;
-    color: white;
+    color: var(--brightest);
 }
 
 
@@ -123,16 +110,4 @@ label
     color: white !important;
 } */
 
-
-.white
-{
-    background-color: white !important;
-    padding: 10px 16px;
-}
-
-.black
-{
-    background-color: black !important;
-    padding: 10px 16px;
-}
 

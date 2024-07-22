@@ -2,8 +2,11 @@ import drg_scoring
 import simulation_generator
 import pandas as pd
 import json
+import sys
 
 FILENAME = "drg_assets/playable_team_runs.csv"
+
+HISTORY_FILE = "drg_assets/history.csv"
 
 TEAM_NAME = "The Drillbeards"
 
@@ -31,5 +34,27 @@ def jsonify_player_team_runs():
     with open('drg_assets/playable_team_results.json', 'w') as f:
             json.dump(final_json, f)
 
+
+def jsonify_history():
+    df = pd.read_csv(HISTORY_FILE)
+     
+    final_json = []
+    
+    if len(df) > 0:
+        for i, row in df.iterrows():
+            this_mission = row.to_dict()
+            this_score = drg_scoring.get_mission_score(row)
+            this_mission["Score"] = this_score
+            final_json.append(this_mission)
+    
+    with open('drg_assets/history.json', 'w') as f:
+            json.dump(final_json, f)
+     
+
+
+
 if __name__ == "__main__":
-    jsonify_player_team_runs()
+    if len(sys.argv) > 1 and sys.argv[1] == "history":
+        jsonify_history()
+    else:
+        jsonify_player_team_runs()
