@@ -9,8 +9,6 @@ function get_json(filename)
     {
         return JSON.parse(xhr.responseText);
     }
-
-    // let retrieved_json = await fetch("http://Natereater.github.io/" + filename);
 }
 
 
@@ -24,6 +22,7 @@ function load_results()
     let build_string = "";
 
     let history = get_json("drg_assets/history.json");
+    console.log(history);
     let N_RUNS = history.length;
 
 
