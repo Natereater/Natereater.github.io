@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>drg_scoring</title>
+	<link rel="stylesheet" href="drg_alt_colors_1.css">
+	<script src="drg_scoring.js" defer></script>
+</head>
+
+
+
+<body>
+	<br>
+	<h2>DRG SCORING</h2>
+
+	
+	<table id="selections_table">
+		
+		<tr>
+			<td><h5 class="descriptor">MISSION TYPE</h5></td>
+			<td>
+				<select id="select_mission_type">
+					<option value="Mining Expedition" id="select_mining_expedition">MINING EXPEDITION</option>
+					<option value="Egg Hunt" id="select_egg_hunt">EGG HUNT</option>
+					<option value="On-Site Refining" id="select_on_site_refining">ON-SITE REFINING</option>
+					<option value="Salvage Operation" id="select_salvage_operation">SALVAGE OPERATION</option>
+					<option value="Point Extraction" id="select_point_extraction">POINT EXTRACTION</option>
+					<option value="Escort Duty" id="select_escort_duty">ESCORT DUTY</option>
+					<option value="Elimination" id="select_elimination">ELIMINATION</option>
+					<option value="Industrial Sabotage" id="select_industrial_sabotage">INDUSTRIAL SABOTAGE</option>
+					<option value="Deep Scan" id="select_deep_scan">DEEP SCAN</option>
+				</select>
+			</td>
+		</tr>
+
+
+		<tr>
+			<td><h5 class="descriptor">BIOME</h5></td>
+			<td>
+				<select id="select_biome">
+					<option value="Crystalline Caverns" id="select_crystalline_caverns">CRYSTALLINE CAVERNS</option>
+					<option value="Salt Pits" id="select_salt_pits">SALT PITS</option>
+					<option value="Fungus Bogs" id="select_fungus_bogs">FUNGUS BOGS</option>
+					<option value="Radioactive Exclusion Zone" id="select_radioactive_exclusion_zone">RADIOACTIVE EXCLUSION ZONE</option>
+					<option value="Dense Biozone" id="select_dense_biozone">DENSE BIOZONE</option>
+					<option value="Glacial Strata" id="select_glacial_strata">GLACIAL STRATA</option>
+					<option value="Hollow Bough" id="select_hollow_bough">HOLLOW BOUGH</option>
+					<option value="Azure Weald" id="select_azure_weald">AZURE WEALD</option>
+					<option value="Magma Core" id="select_magma_core">MAGMA CORE</option>
+					<option value="Sandblasted Corridors" id="select_sandblasted_corridors">SANDBLASTED CORRIDORS</option>
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+			<td></td>
+			<td>
+				<select id="select_success">
+					<option value="true" class="selection_option">MISSION SUCCESS</option>
+					<option value="false" class="selection_option">MISSION FAILED</option>
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+			<td><img id="display_length_img" src="drg_assets/images/length_1.webp"></td>
+			<td>
+				<select id="select_length">
+					<option value=1 class="selection_option">1</option>
+					<option value=2 class="selection_option">2</option>
+					<option value=3 class="selection_option">3</option>
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+			<td><img id="display_complexity_img" src="drg_assets/images/complexity_1.webp"></td>
+			<td>
+				<select id="select_complexity">
+					<option value=1 class="selection_option">1</option>
+					<option value=2 class="selection_option">2</option>
+					<option value=3 class="selection_option">3</option>
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+			<td><h5 class="descriptor">HAZARD</h5></td>
+			<td>
+				<select id="select_hazard">
+					<option value=1 class="selection_option">1</option>
+					<option value=2 class="selection_option">2</option>
+					<option value=3 class="selection_option">3</option>
+					<option value=4 class="selection_option">4</option>
+					<option value=5 class="selection_option">5</option>
+					<option value=5.25 class="selection_option">5.25</option>
+					<option value=5.5 class="selection_option">5.5</option>
+					<option value=5.75 class="selection_option">5.75</option>
+					<option value=6 class="selection_option">6</option>
+					<option value=6.25 class="selection_option">6.25</option>
+					<option value=6.5 class="selection_option">6.5</option>
+					<option value=6.75 class="selection_option">6.75</option>
+					<option value=7 class="selection_option">7</option>
+				</select>
+			</td>
+		</tr>
+
+
+		<tr>
+			<td><h5 class="descriptor">ANOMALY</h5></td>
+			<td>
+				<select id="select_anomaly">
+					<option value="None" class="selection_option">NONE</option>
+					<option value="Blood Sugar" class="selection_option">BLOOD SUGAR</option>
+					<option value="Critical Weakness" class="selection_option">CRITICAL WEAKNESS</option>
+					<option value="Double XP" class="selection_option">DOUBLE XP</option>
+					<option value="Gold Rush" class="selection_option">GOLD RUSH</option>
+					<option value="Golden Bugs" class="selection_option">GOLDEN BUGS</option>
+					<option value="Low Gravity" class="selection_option">LOW GRAVITY</option>
+					<option value="Mineral Mania" class="selection_option">MINERAL MANIA</option>
+					<option value="Rich Atmosphere" class="selection_option">RICH ATMOSPHERE</option>
+					<option value="Secret Secondary" class="selection_option">SECRET SECONDARY</option>
+					<option value="Volatile Guts" class="selection_option">VOLLATILE GUTS</option>
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+			<td><h5 class="descriptor">WARNING 1</h5></td>
+			<td>
+				<select id="select_warning_1">
+					<option value="None" class="selection_option">NONE</option>
+					<option value="Cave Leech Cluster" class="selection_option">CAVE LEECH CLUSTER</option>
+					<option value="Duck and Cover" class="selection_option">DUCK AND COVER</option>
+					<option value="Ebonite Outbreak" class="selection_option">EBONITE OUTBREAK</option>
+					<option value="Elite Threat" class="selection_option">ELITE THREAT</option>
+					<option value="Exploder Infestation" class="selection_option">EXPLODER INFESTATION</option>
+					<option value="Haunted Cave" class="selection_option">HAUNTED CAVE</option>
+					<option value="Lethal Enemies" class="selection_option">LETHAL ENEMIES</option>
+					<option value="Low Oxygen" class="selection_option">LOW OXYGEN</option>
+					<option value="Mactera Plague" class="selection_option">MACTERA PLAGUE</option>
+					<option value="Parasites" class="selection_option">PARASITES</option>
+					<option value="Regenerative Bugs" class="selection_option">REGENERATIVE BUGS</option>
+					<option value="Rival Presence" class="selection_option">RIVAL PRESENCE</option>
+					<option value="Shield Disruption" class="selection_option">SHIELD DISRUPTION</option>
+					<option value="Swarmageddon" class="selection_option">SWARMAGEDDON</option>
+					<option value="Lithophage Outbreak" class="selection_option">LITHOPHAGE OUTBREAK</option>
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+			<td><h5 class="descriptor">WARNING 2</h5></td>
+			<td>
+				<select id="select_warning_2">
+					<option value="None" class="selection_option">NONE</option>
+					<option value="Cave Leech Cluster" class="selection_option">CAVE LEECH CLUSTER</option>
+					<option value="Duck and Cover" class="selection_option">DUCK AND COVER</option>
+					<option value="Ebonite Outbreak" class="selection_option">EBONITE OUTBREAK</option>
+					<option value="Elite Threat" class="selection_option">ELITE THREAT</option>
+					<option value="Exploder Infestation" class="selection_option">EXPLODER INFESTATION</option>
+					<option value="Haunted Cave" class="selection_option">HAUNTED CAVE</option>
+					<option value="Lethal Enemies" class="selection_option">LETHAL ENEMIES</option>
+					<option value="Low Oxygen" class="selection_option">LOW OXYGEN</option>
+					<option value="Mactera Plague" class="selection_option">MACTERA PLAGUE</option>
+					<option value="Parasites" class="selection_option">PARASITES</option>
+					<option value="Regenerative Bugs" class="selection_option">REGENERATIVE BUGS</option>
+					<option value="Rival Presence" class="selection_option">RIVAL PRESENCE</option>
+					<option value="Shield Disruption" class="selection_option">SHIELD DISRUPTION</option>
+					<option value="Swarmageddon" class="selection_option">SWARMAGEDDON</option>
+					<option value="Lithophage Outbreak" class="selection_option">LITHOPHAGE OUTBREAK</option>
+				</select>
+			</td>
+		</tr>
+
+
+		<tr>
+			<td><h5 class="descriptor">TIME</h5></td>
+			<td>
+				<input id="enter_time" type="text">
+			</td>
+		</tr>
+
+		<tr>
+			<td><h5 class="descriptor">CREDITS</h5></td>
+			<td>
+				<input id="enter_credits" type="number">
+			</td>
+		</tr>
+
+		<tr>
+			<td><h5 class="descriptor">SECONDARY</h5></td>
+			<td>
+				<input id="select_secondary" name="select_secondary" type="checkbox"> <label for="select_secondary">COMPLETED SECONDARY</label>
+			</td>
+		</tr>
+
+		<tr>
+			<td><h5 class="descriptor">BONUS OBJECTIVES</h5></td>
+			<td>
+				<input id="select_korlok" name="select_korlok" type="checkbox"> <label for="select_korlok">KORLOK TYRANT WEED</label><br>
+				<input id="select_corruptor" name="select_corruptor" type="checkbox"> <label for="select_corruptor">LITHOPHAGE CORRUPTOR</label><br>
+				<input id="select_betc" name="select_betc" type="checkbox"> <label for="select_betc">BET-C</label><br>
+				<input id="select_machine_event" name="select_machine_event" type="checkbox"> <label for="select_machine_event">MACHINE EVENT</label><br>
+				<input id="select_core_stone" name="select_core_stone" type="checkbox"> <label for="select_core_stone">CORE STONE</label><br>
+				<input id="select_rock_cracker" name="select_rock_cracker" type="checkbox"> <label for="select_rock_cracker">ROCK CRACKER</label><br>
+				<input id="select_data_cell" name="select_data_cell" type="checkbox"> <label for="select_data_cell">DATA CELL</label><br>
+				<input id="select_nemesis" name="select_nemesis" type="checkbox"> <label for="select_nemesis">NEMESIS</label><br>
+				<input id="select_doretta_head" name="select_doretta_head" type="checkbox"> <label for="select_doretta_head">DORETTA HEAD RETURNED</label>
+			</td>
+		</tr>
+
+	</table>
+
+
+
+	<br>
+	<br>
+
+	<button id="add_run_button" onclick="add_run()">+ ADD RUN</button>
+
+	<br>
+
+
+
+
+
+	<div id="runs">
+
+	</div>
+
+	<br>
+
+
+</body>
+</html>
