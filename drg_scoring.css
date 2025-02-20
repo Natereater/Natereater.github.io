@@ -1,0 +1,203 @@
+@import url('http://fonts.cdnfonts.com/css/porter');
+@import url('https://fonts.cdnfonts.com/css/ubuntu-mono');
+
+:root 
+{
+    --darkest: #071402;
+    --second: #0C2605;
+    --third: #2E590E;
+    --bright: #548C1C;
+    --brightest: #8EBF24;
+    --blinding: #b4eb3d;
+}
+
+
+
+
+body
+{
+    background-color: var(--darkest);
+    font-family: 'Ubuntu Mono', sans-serif;
+}
+
+
+
+h2
+{
+    color: var(--bright);
+}
+
+h3
+{
+    color: var(--bright);
+}
+
+h4
+{
+    color: var(--bright);
+}
+
+
+
+#selections_table
+{
+    border: 0px solid black;
+    border-spacing: 4px;
+    padding: 4px;
+    margin: 10 auto;
+}
+
+#selections_table th
+{
+    background-color: var(--third);
+    padding: 10px;
+    color: var(--brightest);
+}
+
+#selections_table td
+{
+    background-color: var(--second);
+    padding: 10px;
+    color: var(--brightest);
+}
+
+#selections_table select
+{
+    background-color: var(--third);
+    padding: 10px;
+    color: var(--brightest);
+    border: none;
+    font-family: 'Ubuntu Mono', sans-serif;
+}
+
+#selections_table input
+{
+    background-color: var(--third);
+    padding: 10px;
+    color: var(--brightest);
+    border: none;
+    font-family: 'Ubuntu Mono', sans-serif;
+}
+
+#selections_table input::selection
+{
+    background-color: var(--bright);
+    padding: 10px;
+    color: var(--blinding);
+    border: none;
+}
+
+/* #selections_table td:hover
+{
+    background-color: #4D7850;
+    color: white;
+} */
+
+
+
+#add_run_button
+{
+    background-color: var(--third);
+    padding: 10px 16px;
+    text-align:"center";
+    color: var(--brightest);
+    width: 80%;
+    display: block;
+    margin: 10 auto;
+    border: none;
+}
+
+#add_run_button:hover
+{
+    background-color: var(--bright);
+    padding: 10px 16px;
+    text-align:"center";
+    color: var(--blinding);
+    width: 80%;
+    display: block;
+    margin: 10 auto;
+    border: none;
+}
+
+
+
+#runs table
+{
+    border: 0px solid black;
+    border-spacing: 4px;
+    padding: 4px;
+}
+
+#runs td
+{
+    background-color: var(--second);
+    padding: 10px 16px;
+    color: var(--brightest);
+}
+
+#runs th
+{
+    background-color: var(--third);
+    padding: 10px;
+    color: var(--brightest);
+}
+
+
+/* #runs td:hover
+{
+    background-color: #4D7850;
+    padding: 10px 16px;
+    color: white;
+}
+
+.selected:hover
+{
+    background-color: #EFB34C !important;
+    padding: 10px 16px;
+    color: #70490A !important;
+}
+
+.unselected:hover
+{
+    background-color: #4D7850 !important;
+    padding: 10px 16px;
+    color: white !important;
+} */
+
+
+
+
+
+
+.checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 16px;
+    height: 16px;
+    border: none;
+    background-color: white;
+    border-radius: 4px;
+    vertical-align: middle; /* Ensures proper alignment with text */
+    display: inline-block; /* Ensures it respects layout */
+  }
+  
+.checkbox:checked {
+    background-color: #e9bb3f !important;
+  }
+  
+.checkbox:checked::after {
+    display: block;
+  }
+
+
+
+
+
+
+
+/*
+==================================================================================================================
+                                        INDIVIDUAL ELEMENTS
+==================================================================================================================
+*/

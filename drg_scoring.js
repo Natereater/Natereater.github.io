@@ -19,7 +19,7 @@ const DEEP_SCAN = "Deep Scan"
 
 // type, length, complexity
 const DIFFICULTIES = {
-    MINING: {
+    [MINING]: {
         1: {
             1: 300 // 200 morkite
         },
@@ -33,7 +33,7 @@ const DIFFICULTIES = {
         }
     },
 
-    EGG_HUNT: {
+    [EGG_HUNT]: {
         1: {
             1: 300 // 4 eggs
         },
@@ -45,14 +45,14 @@ const DIFFICULTIES = {
         }
     },
 
-    ON_SITE_REFINING: {
+    [ON_SITE_REFINING]: {
         2: {
             2: 350,
             3: 365
         }
     },
 
-    SALVAGE_OPERATION: {
+    [SALVAGE_OPERATION]: {
         2: {
             2: 340 // 2 mules
         },
@@ -61,7 +61,7 @@ const DIFFICULTIES = {
         }
     },
 
-    POINT_EXTRACTION: {
+    [POINT_EXTRACTION]: {
         2: {
             3: 335 // 7 aquarqs
         },
@@ -70,7 +70,7 @@ const DIFFICULTIES = {
         }
     },
 
-    ESCORT_DUTY: {
+    [ESCORT_DUTY]: {
         2: {
             2: 360, // 1 refuel
             3: 370  // 1 refuel
@@ -81,7 +81,7 @@ const DIFFICULTIES = {
         }
     },
 
-    ELIMINATION: {
+    [ELIMINATION]: {
         2: {
             2: 335 // 2 dreadnoughts
         },
@@ -90,14 +90,14 @@ const DIFFICULTIES = {
         }
     },
 
-    INDUSTRIAL_SABOTAGE: {
+    [INDUSTRIAL_SABOTAGE]: {
         2: {
             1: 390, // 2 power stations
             2: 400  // 2 power stations
         }
     },
 
-    DEEP_SCAN: {
+    [DEEP_SCAN]: {
         1: {
             2: 325 // 3 scans
         },
@@ -111,7 +111,7 @@ const DIFFICULTIES = {
 
 // type, length, complexity
 const EXPECTED_TIME = {
-    MINING: {
+    [MINING]: {
         1: {
             1: 16 // 200 morkite
         },
@@ -125,7 +125,7 @@ const EXPECTED_TIME = {
         }
     },
 
-    EGG_HUNT: {
+    [EGG_HUNT]: {
         1: {
             1: 16 // 4 eggs
         },
@@ -137,14 +137,14 @@ const EXPECTED_TIME = {
         }
     },
 
-    ON_SITE_REFINING: {
+    [ON_SITE_REFINING]: {
         2: {
             2: 23,
             3: 27
         }
     },
 
-    SALVAGE_OPERATION: {
+    [SALVAGE_OPERATION]: {
         2: {
             2: 25 // 2 mules
         },
@@ -153,7 +153,7 @@ const EXPECTED_TIME = {
         }
     },
 
-    POINT_EXTRACTION: {
+    [POINT_EXTRACTION]: {
         2: {
             3: 19 // 7 aquarqs
         },
@@ -162,7 +162,7 @@ const EXPECTED_TIME = {
         }
     },
 
-    ESCORT_DUTY: {
+    [ESCORT_DUTY]: {
         2: {
             2: 27, // 1 refuel
             3: 29  // 1 refuel
@@ -173,7 +173,7 @@ const EXPECTED_TIME = {
         }
     },
 
-    ELIMINATION: {
+    [ELIMINATION]: {
         2: {
             2: 23 // 2 dreadnoughts
         },
@@ -182,14 +182,14 @@ const EXPECTED_TIME = {
         }
     },
 
-    INDUSTRIAL_SABOTAGE: {
+    [INDUSTRIAL_SABOTAGE]: {
         2: {
             1: 34, // 2 power stations
             2: 38  // 2 power stations
         }
     },
 
-    DEEP_SCAN: {
+    [DEEP_SCAN]: {
         1: {
             2: 21 // 3 scans
         },
@@ -215,16 +215,16 @@ const MAGMA_CORE = "Magma Core"
 const SANDBLASTED_CORRIDORS = "Sandblasted Corridors"
 
 const BIOME_DIFFICULTY = {
-    CRYSTALLINE_CAVERNS: 2,
-    SALT_PITS: 0,
-    FUNGUS_BOGS: 11,
-    RADIOACTIVE_EXCLUSION_ZONE: 9,
-    DENSE_BIOZONE: 10,
-    GLACIAL_STRATA: 16,
-    HOLLOW_BOUGH: 13,
-    AZURE_WEALD: 4,
-    MAGMA_CORE: 21,
-    SANDBLASTED_CORRIDORS: 6,
+    [CRYSTALLINE_CAVERNS]: 2,
+    [SALT_PITS]: 0,
+    [FUNGUS_BOGS]: 11,
+    [RADIOACTIVE_EXCLUSION_ZONE]: 9,
+    [DENSE_BIOZONE]: 10,
+    [GLACIAL_STRATA]: 16,
+    [HOLLOW_BOUGH]: 13,
+    [AZURE_WEALD]: 4,
+    [MAGMA_CORE]: 21,
+    [SANDBLASTED_CORRIDORS]: 6,
 }
 
 
@@ -244,17 +244,17 @@ const VOLATILE_GUTS = "Volatile Guts"
 
 
 const ANOMALY_MULTIPLIERS = {
-    BLOOD_SUGAR: 0.950,
-    CRITICAL_WEAKNESS: 0.945,
-    DOUBLE_XP: 1,
-    GOLD_RUSH: 0.995,
-    GOLDEN_BUGS: 0.985,
-    LOW_GRAVITY: 0.970,
-    MINERAL_MANIA: 1,
-    RICH_ATMOSPHERE: 0.975,
-    SECRET_SECONDARY: 0.995,
-    VOLATILE_GUTS: 1.010,
-    NONE: 1
+    [BLOOD_SUGAR]: 0.950,
+    [CRITICAL_WEAKNESS]: 0.945,
+    [DOUBLE_XP]: 1,
+    [GOLD_RUSH]: 0.995,
+    [GOLDEN_BUGS]: 0.985,
+    [LOW_GRAVITY]: 0.970,
+    [MINERAL_MANIA]: 1,
+    [RICH_ATMOSPHERE]: 0.975,
+    [SECRET_SECONDARY]: 0.995,
+    [VOLATILE_GUTS]: 1.010,
+    [NONE]: 1
 }
 
 
@@ -279,22 +279,22 @@ const SWARMAGEDDON = "Swarmageddon"
 const LITHOPHAGE_OUTBREAK = "Lithophage Outbreak"
 
 const WARNING_MULTIPLIERS = {
-    CAVE_LEECH_CLUSTER: 1.065,
-    DUCK_AND_COVER: 1.125,
-    EBONITE_OUTBREAK: 1.145,
-    ELITE_THREAT: 1.160,
-    EXPLODER_INFESTATION: 1.075,
-    HAUNTED_CAVE: 1.215,
-    LETHAL_ENEMIES: 1.185,
-    LOW_OXYGEN: 1.195,
-    MACTERA_PLAGUE: 1.090,
-    PARASITES: 1.080,
-    REGENERATIVE_BUGS: 1.045,
-    RIVAL_PRESENCE: 1.170,
-    SHIELD_DISRUPTION: 1.245,
-    SWARMAGEDDON: 1.180,
-    LITHOPHAGE_OUTBREAK: 1.170,
-    NONE: 1
+    [CAVE_LEECH_CLUSTER]: 1.065,
+    [DUCK_AND_COVER]: 1.125,
+    [EBONITE_OUTBREAK]: 1.145,
+    [ELITE_THREAT]: 1.160,
+    [EXPLODER_INFESTATION]: 1.075,
+    [HAUNTED_CAVE]: 1.215,
+    [LETHAL_ENEMIES]: 1.185,
+    [LOW_OXYGEN]: 1.195,
+    [MACTERA_PLAGUE]: 1.090,
+    [PARASITES]: 1.080,
+    [REGENERATIVE_BUGS]: 1.045,
+    [RIVAL_PRESENCE]: 1.170,
+    [SHIELD_DISRUPTION]: 1.245,
+    [SWARMAGEDDON]: 1.180,
+    [LITHOPHAGE_OUTBREAK]: 1.170,
+    [NONE]: 1
 }
 
 
@@ -328,7 +328,7 @@ const CREDITS_PER_POINT = 20
 // -----------------------------
 //        GLOBAL VARS
 // -----------------------------
-var global_run_list = [];
+var global_run_list;
 
 
 function parse_time(time_string)
@@ -365,11 +365,29 @@ class RunList
 
     add_run = function(run)
     {
-        this.all_runs;
+        this.all_runs.push(run);
+    }
+
+    get_html = function()
+    {
+        let FIELDS_LIST =["Misssion Type","Biome","Success","Length","Complexity","Hazard","Anomaly","Warning-1","Warning-2","Credits","Time","Secondary","Bonus Objectives","Score"];
+        let build_string = "<table id=\"runs_table\"><tr>";
+
+        for (let i = 0; i < FIELDS_LIST.length; i++)
+        {
+            build_string += "<th>" + String(FIELDS_LIST[i]) + "</th>";
+        }
+        build_string += "</tr>";
+
+        for (let i = 0; i < this.all_runs.length; i++)
+        {
+            build_string += this.all_runs[i].get_row_string();
+        }
+
+        build_string += "</table>";
+        return build_string;
     }
 }
-
-
 
 
 class Run
@@ -386,6 +404,7 @@ class Run
         this.warning_1 = document.getElementById("select_warning_1").value;
         this.warning_2 = document.getElementById("select_warning_2").value;
         this.time = parse_time(document.getElementById("enter_time").value);
+        this.time_string = document.getElementById("enter_time").value;
         this.credits = parseInt(document.getElementById("enter_credits").value);
         this.secondary = document.getElementById("select_secondary").checked;
         this.bonus_obj = get_bonus_obj_score();
@@ -449,13 +468,28 @@ class Run
     
     get_score = function()
     {
-        return this.get_additive_score() * this.get_multiplier();
+        return Math.floor(this.get_additive_score() * this.get_multiplier());
     }
 
     get_row_string = function()
     {
-        build_string += "<tr>";
-        build_string += '<td style="text-align:center;"><img src="drg_assets/images/' + this.mission_type + '_icon.webp" alt="'  + this.mission_type + '" width="32" height="32"></td>'
+        let build_string = "<tr>";
+        build_string += '<td style="text-align:center;"><img src="drg_assets/images/' + this.mission_type + '_icon.webp" alt="'  + this.mission_type + '" width="32" height="32"></td>';
+        build_string += "<td>" + this.biome + "</td>";
+        build_string += "<td>" + String(this.success) + "</td>";
+        build_string += "<td style=\"text-align:center;\">" + '<img src="drg_assets/images/length_' + String(this.length) + '.webp" alt="'  + String(this.length) + '" width="60" height="24">' + "</td>";
+        build_string += "<td style=\"text-align:center;\">" + '<img src="drg_assets/images/complexity_' + String(this.complexity) + '.webp" alt="'  + String(this.complexity) + '" width="60" height="24">' + "</td>";
+        build_string += "<td>" + String(this.hazard) + "</td>";
+        build_string += "<td>" + this.anomaly + "</td>";
+        build_string += "<td>" + this.warning_1 + "</td>";
+        build_string += "<td>" + this.warning_2 + "</td>";
+        build_string += "<td>" + String(this.credits) + "</td>";
+        build_string += "<td>" + String(this.time_string) + "</td>";
+        build_string += "<td>" + String(this.secondary) + "</td>";
+        build_string += "<td>" + String(this.bonus_obj) + "</td>";
+        build_string += "<td>" + String(this.score) + "</td>";
+        build_string += "</tr>";
+        return build_string;
     }
 
 }
@@ -468,5 +502,14 @@ class Run
 function add_run()
 {
     let new_run = new Run();
+    let run_div = document.getElementById("runs");
 
+    global_run_list.add_run(new_run);
+    run_div.innerHTML = global_run_list.get_html();
 }
+
+
+
+window.onload = function() {
+    global_run_list = new RunList();
+  };
