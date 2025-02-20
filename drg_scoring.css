@@ -193,6 +193,24 @@ h4
 
 
 
+  .remove_run_box
+  {
+    background-color: var(--bright) !important;
+    color: white !important;
+    text-align: center !important;
+  }
+
+  .remove_run_box:hover
+  {
+    background-color: var(--brightest) !important;
+    color: white !important;
+    text-align: center !important;
+  }
+
+
+
+/* <a target="_blank" href="https://icons8.com/icon/sDhS6IligpIy/trash-can">Trash Can</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a> */
+
 
 
 

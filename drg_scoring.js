@@ -329,6 +329,7 @@ const CREDITS_PER_POINT = 20
 //        GLOBAL VARS
 // -----------------------------
 var global_run_list;
+var next_id;
 
 
 function parse_time(time_string)
@@ -370,7 +371,7 @@ class RunList
 
     get_html = function()
     {
-        let FIELDS_LIST =["Misssion Type","Biome","Success","Length","Complexity","Hazard","Anomaly","Warning-1","Warning-2","Credits","Time","Secondary","Bonus Objectives","Score"];
+        let FIELDS_LIST =["Misssion Type","Biome","Success","Length","Complexity","Hazard","Anomaly","Warning-1","Warning-2","Credits","Time","Secondary","Bonus Objectives","Score","Delete"];
         let build_string = "<table id=\"runs_table\"><tr>";
 
         for (let i = 0; i < FIELDS_LIST.length; i++)
@@ -392,8 +393,9 @@ class RunList
 
 class Run
 {
-    constructor()
+    constructor(id)
     {
+        this.id = id;
         this.mission_type = document.getElementById("select_mission_type").value;
         this.biome = document.getElementById("select_biome").value;
         this.success = document.getElementById("select_success").value == "true";
@@ -488,6 +490,8 @@ class Run
         build_string += "<td>" + String(this.secondary) + "</td>";
         build_string += "<td>" + String(this.bonus_obj) + "</td>";
         build_string += "<td>" + String(this.score) + "</td>";
+        //build_string += "<td class=\"remove_run_box\"><button class=\"remove_run_button\" onclick=\"remove_run(" + String(this.id) + ")\">X</button></td>";
+        build_string += "<td class=\"remove_run_box\" onclick=\"remove_run(" + String(this.id) + ")\">X</td>";
         build_string += "</tr>";
         return build_string;
     }
@@ -497,11 +501,25 @@ class Run
 
 
 
+function remove_run(id)
+{
+    let run_div = document.getElementById("runs");
+    for(let i = 0; i < global_run_list.all_runs.length; i++)
+    {
+        if (global_run_list.all_runs[i].id == id)
+        {
+            global_run_list.all_runs.splice(i, 1);
+        }
+    }
+    run_div.innerHTML = global_run_list.get_html();
+}
+
 
 // gets called when button pressed
 function add_run()
 {
-    let new_run = new Run();
+    let new_run = new Run(next_id);
+    next_id += 1;
     let run_div = document.getElementById("runs");
 
     global_run_list.add_run(new_run);
@@ -512,4 +530,5 @@ function add_run()
 
 window.onload = function() {
     global_run_list = new RunList();
+    next_id = 0;
   };
