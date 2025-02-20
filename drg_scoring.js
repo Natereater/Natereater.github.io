@@ -526,6 +526,19 @@ function add_run()
     run_div.innerHTML = global_run_list.get_html();
 }
 
+function complexity_updated()
+{
+    let value = document.getElementById("select_complexity").value;
+    let image = document.getElementById("display_complexity_img");
+    image.src = "drg_assets/images/complexity_" + value + ".webp";
+}
+
+function length_updated()
+{
+    let value = document.getElementById("select_length").value;
+    let image = document.getElementById("display_length_img");
+    image.src = "drg_assets/images/length_" + value + ".webp";
+}
 
 
 window.onload = function() {
