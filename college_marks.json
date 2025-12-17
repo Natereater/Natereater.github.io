@@ -1,0 +1,416 @@
+[
+    {
+        "event": "200m",
+        "mark": "23.83",
+        "date": "2019-03-02",
+        "location": "Linfield"
+    },
+    {
+        "event": "200m",
+        "mark": "23.57",
+        "date": "2019-03-09",
+        "location": "Pacific"
+    },
+    {
+        "event": "PV",
+        "mark": "4.24",
+        "date": "2019-03-09",
+        "location": "Pacific"
+    },
+    {
+        "event": "200m",
+        "mark": "23.67",
+        "date": "2019-03-16",
+        "location": "George Fox"
+    },
+    {
+        "event": "PV",
+        "mark": "4.24",
+        "date": "2019-03-16",
+        "location": "George Fox"
+    },
+    {
+        "event": "200m",
+        "mark": "23.62",
+        "date": "2019-03-21",
+        "location": "Westmont"
+    },
+    {
+        "event": "PV",
+        "mark": "4.35",
+        "date": "2019-03-21",
+        "location": "Westmont"
+    },
+    {
+        "event": "200m",
+        "mark": "23.74",
+        "date": "2019-03-30",
+        "location": "UCSD"
+    },
+    {
+        "event": "200m",
+        "mark": "24.12",
+        "date": "2019-04-06",
+        "location": "Linfield"
+    },
+    {
+        "event": "PV",
+        "mark": "4.39",
+        "date": "2019-04-06",
+        "location": "Linfield"
+    },
+    {
+        "event": "200m",
+        "mark": "23.96",
+        "date": "2019-04-13",
+        "location": "Pacific"
+    },
+    {
+        "event": "PV",
+        "mark": "4.34",
+        "date": "2019-04-20",
+        "location": "Lewis & Clark"
+    },
+    {
+        "event": "PV",
+        "mark": "4.43",
+        "date": "2019-04-26",
+        "location": "Pacific Lutheran"
+    },
+    {
+        "event": "PV",
+        "mark": "4.15",
+        "date": "2019-05-04",
+        "location": "Linfield"
+    },
+    {
+        "event": "PV",
+        "mark": "4.41",
+        "date": "2019-05-11",
+        "location": "Willamette"
+    },
+    {
+        "event": "60m",
+        "mark": "7.65",
+        "date": "2020-01-25",
+        "location": "George Fox"
+    },
+    {
+        "event": "PV",
+        "mark": "4.35",
+        "date": "2020-01-25",
+        "location": "George Fox"
+    },
+    {
+        "event": "60m",
+        "mark": "7.73",
+        "date": "2020-02-22",
+        "location": "George Fox"
+    },
+    {
+        "event": "60m",
+        "mark": "7.67",
+        "date": "2020-02-22",
+        "location": "George Fox"
+    },
+    {
+        "event": "PV",
+        "mark": "4.35",
+        "date": "2020-02-22",
+        "location": "George Fox"
+    },
+    {
+        "event": "200m",
+        "mark": "24.28",
+        "date": "2021-03-06",
+        "location": "Linfield"
+    },
+    {
+        "event": "HJ",
+        "mark": "1.76",
+        "date": "2021-03-06",
+        "location": "Linfield"
+    },
+    {
+        "event": "PV",
+        "mark": "4.21",
+        "date": "2021-03-06",
+        "location": "Linfield"
+    },
+    {
+        "event": "200m",
+        "mark": "24.33",
+        "date": "2021-03-06",
+        "location": "Linfield"
+    },
+    {
+        "event": "PV",
+        "mark": "4.51",
+        "date": "2021-03-13",
+        "location": "George Fox"
+    },
+    {
+        "event": "PV",
+        "mark": "4.15",
+        "date": "2021-03-20",
+        "location": "Lewis & Clark"
+    },
+    {
+        "event": "PV",
+        "mark": "4.50",
+        "date": "2021-03-27",
+        "location": "Westmont"
+    },
+    {
+        "event": "PV",
+        "mark": "4.23",
+        "date": "2021-04-10",
+        "location": "Pacific"
+    },
+    {
+        "event": "PV",
+        "mark": "4.75",
+        "date": "2021-04-17",
+        "location": "George Fox"
+    },
+    {
+        "event": "PV",
+        "mark": "4.40",
+        "date": "2021-04-24",
+        "location": "Linfield"
+    },
+    {
+        "event": "PV",
+        "mark": "4.59",
+        "date": "2021-05-01",
+        "location": "OSU"
+    },
+    {
+        "event": "HJ",
+        "mark": "1.84",
+        "date": "2021-05-13",
+        "location": "Pacific"
+    },
+    {
+        "event": "PV",
+        "mark": "4.43",
+        "date": "2021-05-13",
+        "location": "Pacific"
+    },
+    {
+        "event": "PV",
+        "mark": "4.51",
+        "date": "2021-05-19",
+        "location": "George Fox"
+    },
+    {
+        "event": "400m",
+        "mark": "52.18",
+        "date": "2022-01-23",
+        "location": "University of Portland"
+    },
+    {
+        "event": "4x4",
+        "mark": "3:32.41",
+        "date": "2022-02-05",
+        "location": "University of Portland"
+    },
+    {
+        "event": "HJ",
+        "mark": "1.81",
+        "date": "2022-02-05",
+        "location": "George Fox"
+    },
+    {
+        "event": "HJ",
+        "mark": "1.91",
+        "date": "2022-02-19",
+        "location": "George Fox"
+    },
+    {
+        "event": "PV",
+        "mark": "4.35",
+        "date": "2022-02-19",
+        "location": "George Fox"
+    },
+    {
+        "event": "4x4",
+        "mark": "3:30.94",
+        "date": "2022-03-19",
+        "location": "OSU"
+    },
+    {
+        "event": "HJ",
+        "mark": "1.80",
+        "date": "2022-03-19",
+        "location": "OSU"
+    },
+    {
+        "event": "200m",
+        "mark": "23.17",
+        "date": "2022-03-19",
+        "location": "OSU"
+    },
+    {
+        "event": "PV",
+        "mark": "4.47",
+        "date": "2022-03-19",
+        "location": "OSU"
+    },
+    {
+        "event": "HJ",
+        "mark": "1.90",
+        "date": "2022-03-26",
+        "location": "Westmont"
+    },
+    {
+        "event": "400m",
+        "mark": "52.69",
+        "date": "2022-04-02",
+        "location": "Linfield"
+    },
+    {
+        "event": "400m",
+        "mark": "51.47",
+        "date": "2022-04-16",
+        "location": "Lewis & Clark"
+    },
+    {
+        "event": "PV",
+        "mark": "4.30",
+        "date": "2022-04-16",
+        "location": "Lewis & Clark"
+    },
+    {
+        "event": "400m",
+        "mark": "51.17",
+        "date": "2022-04-22",
+        "location": "Puget Sound"
+    },
+    {
+        "event": "400m",
+        "mark": "51.56",
+        "date": "2022-04-22",
+        "location": "Puget Sound"
+    },
+    {
+        "event": "4x4",
+        "mark": "3:24.23",
+        "date": "2022-04-22",
+        "location": "Puget Sound"
+    },
+    {
+        "event": "HJ",
+        "mark": "1.80",
+        "date": "2022-04-22",
+        "location": "Puget Sound"
+    },
+    {
+        "event": "PV",
+        "mark": "4.28",
+        "date": "2022-04-29",
+        "location": "OSU"
+    },
+    {
+        "event": "100m",
+        "mark": "11.99",
+        "date": "2022-05-07",
+        "location": "Linfield"
+    },
+    {
+        "event": "110mH",
+        "mark": "17.05",
+        "date": "2022-05-07",
+        "location": "Linfield"
+    },
+    {
+        "event": "JT",
+        "mark": "31.12",
+        "date": "2022-05-07",
+        "location": "Linfield"
+    },
+    {
+        "event": "100m",
+        "mark": "11.73",
+        "date": "2022-05-13",
+        "location": "Lewis & Clark"
+    },
+    {
+        "event": "LJ",
+        "mark": "6.05",
+        "date": "2022-05-13",
+        "location": "Lewis & Clark"
+    },
+    {
+        "event": "JT",
+        "mark": "29.69",
+        "date": "2022-05-13",
+        "location": "Lewis & Clark"
+    },
+    {
+        "event": "100m",
+        "mark": "11.74",
+        "date": "2022-05-18",
+        "location": "George Fox"
+    },
+    {
+        "event": "LJ",
+        "mark": "6.25",
+        "date": "2022-05-18",
+        "location": "George Fox"
+    },
+    {
+        "event": "SP",
+        "mark": "8.76",
+        "date": "2022-05-18",
+        "location": "George Fox"
+    },
+    {
+        "event": "HJ",
+        "mark": "1.86",
+        "date": "2022-05-18",
+        "location": "George Fox"
+    },
+    {
+        "event": "400m",
+        "mark": "51.00",
+        "date": "2022-05-18",
+        "location": "George Fox"
+    },
+    {
+        "event": "110mH",
+        "mark": "16.77",
+        "date": "2022-05-19",
+        "location": "George Fox"
+    },
+    {
+        "event": "DT",
+        "mark": "24.9",
+        "date": "2022-05-19",
+        "location": "George Fox"
+    },
+    {
+        "event": "PV",
+        "mark": "4.3",
+        "date": "2022-05-19",
+        "location": "George Fox"
+    },
+    {
+        "event": "JT",
+        "mark": "34.5",
+        "date": "2022-05-19",
+        "location": "George Fox"
+    },
+    {
+        "event": "1500m",
+        "mark": "4:34.70",
+        "date": "2022-05-19",
+        "location": "George Fox"
+    },
+    {
+        "event": "decathlon",
+        "mark": "5958",
+        "date": "2022-05-19",
+        "location": "George Fox"
+    }
+]

@@ -1,0 +1,818 @@
+[
+    {
+        "event": "HJ",
+        "mark": "1.52",
+        "date": "2015-06-20",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "PV",
+        "mark": "2.90",
+        "date": "2015-06-20",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "JT",
+        "mark": "16.89",
+        "date": "2015-06-20",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "100m",
+        "mark": "13.65",
+        "date": "2016-07-22",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "HJ",
+        "mark": "1.63",
+        "date": "2016-07-22",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "JT",
+        "mark": "19.18",
+        "date": "2016-07-22",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "LJ",
+        "mark": "5.23",
+        "date": "2017-07-08",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "PV",
+        "mark": "3.96",
+        "date": "2017-07-08",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "JT",
+        "mark": "29.39",
+        "date": "2017-07-08",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "HJ",
+        "mark": "1.68",
+        "date": "2019-06-21",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "200m",
+        "mark": "24.25",
+        "date": "2022-07-15",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "110mH",
+        "mark": "17.24",
+        "date": "2022-07-15",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "DT",
+        "mark": "23.47",
+        "date": "2022-07-15",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "JT",
+        "mark": "35.15",
+        "date": "2022-07-15",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "400m",
+        "mark": "52.91",
+        "date": "2022-07-29",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "110mH",
+        "mark": "17.12",
+        "date": "2022-07-29",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "JT",
+        "mark": "34.29",
+        "date": "2022-07-29",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "110mH",
+        "mark": "16.23",
+        "date": "2023-02-18",
+        "location": "Pomona Pitzer"
+    },
+    {
+        "event": "JT",
+        "mark": "35.96",
+        "date": "2023-02-18",
+        "location": "Pomona Pitzer"
+    },
+    {
+        "event": "400mH",
+        "mark": "58.15",
+        "date": "2023-02-18",
+        "location": "Pomona Pitzer"
+    },
+    {
+        "event": "100m",
+        "mark": "12.10",
+        "date": "2023-02-23",
+        "location": "Mt SAC"
+    },
+    {
+        "event": "LJ",
+        "mark": "5.80",
+        "date": "2023-02-23",
+        "location": "Mt SAC"
+    },
+    {
+        "event": "SP",
+        "mark": "10.50",
+        "date": "2023-02-18",
+        "location": "Mt SAC"
+    },
+    {
+        "event": "HJ",
+        "mark": "1.79",
+        "date": "2023-02-18",
+        "location": "Mt SAC"
+    },
+    {
+        "event": "400m",
+        "mark": "51.5",
+        "date": "2023-02-18",
+        "location": "Mt SAC"
+    },
+    {
+        "event": "400m",
+        "mark": "53.00",
+        "date": "2023-03-10",
+        "location": "LBCC"
+    },
+    {
+        "event": "decathlon",
+        "mark": "6011",
+        "date": "2023-03-23",
+        "location": "Westmont"
+    },
+    {
+        "event": "110mH",
+        "mark": "16.43",
+        "date": "2023-03-23",
+        "location": "Westmont"
+    },
+    {
+        "event": "SP",
+        "mark": "10.12",
+        "date": "2023-03-23",
+        "location": "Westmont"
+    },
+    {
+        "event": "DT",
+        "mark": "24.19",
+        "date": "2023-03-23",
+        "location": "Westmont"
+    },
+    {
+        "event": "JT",
+        "mark": "33.96",
+        "date": "2023-03-23",
+        "location": "Westmont"
+    },
+    {
+        "event": "LJ",
+        "mark": "6.23",
+        "date": "2023-03-23",
+        "location": "Westmont"
+    },
+    {
+        "event": "PV",
+        "mark": "4.05",
+        "date": "2023-03-23",
+        "location": "Westmont"
+    },
+    {
+        "event": "100m",
+        "mark": "11.52",
+        "date": "2023-03-23",
+        "location": "Westmont"
+    },
+    {
+        "event": "HJ",
+        "mark": "1.83",
+        "date": "2023-03-23",
+        "location": "Westmont"
+    },
+    {
+        "event": "1500m",
+        "mark": "4:40.81",
+        "date": "2023-03-23",
+        "location": "Westmont"
+    },
+    {
+        "event": "400m",
+        "mark": "50.72",
+        "date": "2023-03-23",
+        "location": "Westmont"
+    },
+    {
+        "event": "200m",
+        "mark": "22.98",
+        "date": "2023-03-31",
+        "location": "Moorpark College"
+    },
+    {
+        "event": "110mH",
+        "mark": "16.57",
+        "date": "2023-04-08",
+        "location": "Pomona Pitzer"
+    },
+    {
+        "event": "800m",
+        "mark": "2:00.57",
+        "date": "2023-04-08",
+        "location": "Pomona Pitzer"
+    },
+    {
+        "event": "DT",
+        "mark": "30.54",
+        "date": "2023-04-08",
+        "location": "Pomona Pitzer"
+    },
+    {
+        "event": "400m",
+        "mark": "49.20",
+        "date": "2023-04-21",
+        "location": "Cal Poly SLO"
+    },
+    {
+        "event": "200m",
+        "mark": "22.80",
+        "date": "2023-04-21",
+        "location": "Cal Poly SLO"
+    },
+    {
+        "event": "400m",
+        "mark": "49.56",
+        "date": "2023-05-06",
+        "location": "Occidental"
+    },
+    {
+        "event": "100m",
+        "mark": "11.29",
+        "date": "2023-05-11",
+        "location": "Azusa Pacific"
+    },
+    {
+        "event": "LJ",
+        "mark": "6.45",
+        "date": "2023-05-11",
+        "location": "Azusa Pacific"
+    },
+    {
+        "event": "SP",
+        "mark": "10.57",
+        "date": "2023-05-11",
+        "location": "Azusa Pacific"
+    },
+    {
+        "event": "HJ",
+        "mark": "1.86",
+        "date": "2023-05-11",
+        "location": "Azusa Pacific"
+    },
+    {
+        "event": "400m",
+        "mark": "49.45",
+        "date": "2023-05-11",
+        "location": "Azusa Pacific"
+    },
+    {
+        "event": "110mH",
+        "mark": "16.33",
+        "date": "2023-05-12",
+        "location": "Azusa Pacific"
+    },
+    {
+        "event": "DT",
+        "mark": "30.07",
+        "date": "2023-05-12",
+        "location": "Azusa Pacific"
+    },
+    {
+        "event": "PV",
+        "mark": "4.00",
+        "date": "2023-05-12",
+        "location": "Azusa Pacific"
+    },
+    {
+        "event": "JT",
+        "mark": "37.35",
+        "date": "2023-05-12",
+        "location": "Azusa Pacific"
+    },
+    {
+        "event": "1500m",
+        "mark": "4:26.51",
+        "date": "2023-05-12",
+        "location": "Azusa Pacific"
+    },
+    {
+        "event": "decathlon",
+        "mark": "6473",
+        "date": "2023-05-12",
+        "location": "Azusa Pacific"
+    },
+    {
+        "event": "100m",
+        "mark": "11.83",
+        "date": "2023-07-14",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "5K",
+        "mark": "19:38.66",
+        "date": "2023-07-14",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "SP",
+        "mark": "10.29",
+        "date": "2023-07-14",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "DT",
+        "mark": "30.25",
+        "date": "2023-07-14",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "TJ",
+        "mark": "11.10",
+        "date": "2023-07-14",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "400m",
+        "mark": "50.58",
+        "date": "2023-07-28",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "JT",
+        "mark": "41.48",
+        "date": "2023-07-28",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "HJ",
+        "mark": "1.78",
+        "date": "2023-07-28",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "LJ",
+        "mark": "5.97",
+        "date": "2023-07-28",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "200m",
+        "mark": "23.52",
+        "date": "2023-08-12",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "300mH",
+        "mark": "42.81",
+        "date": "2023-08-12",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "600m",
+        "mark": "1:22.44",
+        "date": "2024-02-09",
+        "location": "Westmont"
+    },
+    {
+        "event": "JT",
+        "mark": "41.87",
+        "date": "2024-02-17",
+        "location": "Pomona Pitzer"
+    },
+    {
+        "event": "DT",
+        "mark": "31.14",
+        "date": "2024-02-17",
+        "location": "Pomona Pitzer"
+    },
+    {
+        "event": "SP",
+        "mark": "10.70",
+        "date": "2024-02-17",
+        "location": "Pomona Pitzer"
+    },
+    {
+        "event": "800m",
+        "mark": "1:57.62",
+        "date": "2024-02-24",
+        "location": "Mt SAC"
+    },
+    {
+        "event": "400m",
+        "mark": "51.65",
+        "date": "2024-04-12",
+        "location": "Cerritos"
+    },
+    {
+        "event": "DT",
+        "mark": "31.69",
+        "date": "2024-04-12",
+        "location": "Cerritos"
+    },
+    {
+        "event": "LJ",
+        "mark": "6.28",
+        "date": "2024-04-12",
+        "location": "Cerritos"
+    },
+    {
+        "event": "JT",
+        "mark": "43.92",
+        "date": "2024-04-12",
+        "location": "Cerritos"
+    },
+    {
+        "event": "110mH",
+        "mark": "16.83",
+        "date": "2024-04-26",
+        "location": "UC Irvine"
+    },
+    {
+        "event": "400m",
+        "mark": "50.64",
+        "date": "2024-04-26",
+        "location": "UC Irvine"
+    },
+    {
+        "event": "400m",
+        "mark": "49.60",
+        "date": "2024-05-04",
+        "location": "Occidental"
+    },
+    {
+        "event": "decathlon",
+        "mark": "6474",
+        "date": "2024-05-09",
+        "location": "Azusa Pacific"
+    },
+    {
+        "event": "110mH",
+        "mark": "16.34",
+        "date": "2024-05-09",
+        "location": "Azusa Pacific"
+    },
+    {
+        "event": "SP",
+        "mark": "10.29",
+        "date": "2024-05-09",
+        "location": "Azusa Pacific"
+    },
+    {
+        "event": "DT",
+        "mark": "28.90",
+        "date": "2024-05-09",
+        "location": "Azusa Pacific"
+    },
+    {
+        "event": "JT",
+        "mark": "38.97",
+        "date": "2024-05-09",
+        "location": "Azusa Pacific"
+    },
+    {
+        "event": "LJ",
+        "mark": "6.28",
+        "date": "2024-05-09",
+        "location": "Azusa Pacific"
+    },
+    {
+        "event": "PV",
+        "mark": "4.35",
+        "date": "2024-05-09",
+        "location": "Azusa Pacific"
+    },
+    {
+        "event": "100m",
+        "mark": "11.38",
+        "date": "2024-05-09",
+        "location": "Azusa Pacific"
+    },
+    {
+        "event": "HJ",
+        "mark": "1.84",
+        "date": "2024-05-09",
+        "location": "Azusa Pacific"
+    },
+    {
+        "event": "1500m",
+        "mark": "4:22.92",
+        "date": "2024-05-09",
+        "location": "Azusa Pacific"
+    },
+    {
+        "event": "400m",
+        "mark": "50.07",
+        "date": "2024-05-09",
+        "location": "Azusa Pacific"
+    },
+    {
+        "event": "100m",
+        "mark": "11.61",
+        "date": "2024-06-01",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "LJ",
+        "mark": "6.31",
+        "date": "2024-06-01",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "SP",
+        "mark": "10.47",
+        "date": "2024-06-01",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "HJ",
+        "mark": "1.87",
+        "date": "2024-06-01",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "400m",
+        "mark": "50.72",
+        "date": "2024-06-01",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "110mH",
+        "mark": "15.74",
+        "date": "2024-06-02",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "DT",
+        "mark": "30.61",
+        "date": "2024-06-02",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "PV",
+        "mark": "4.40",
+        "date": "2024-06-02",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "JT",
+        "mark": "42.58",
+        "date": "2024-06-02",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "1500m",
+        "mark": "4:26.12",
+        "date": "2024-06-02",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "decathlon",
+        "mark": "6587",
+        "date": "2024-06-02",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "200m",
+        "mark": "23.90",
+        "date": "2024-07-19",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "110mH",
+        "mark": "16.36",
+        "date": "2024-07-19",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "DT",
+        "mark": "34.65",
+        "date": "2024-07-19",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "JT",
+        "mark": "38.40",
+        "date": "2024-07-19",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "HJ",
+        "mark": "1.80",
+        "date": "2024-07-19",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "LJ",
+        "mark": "6.08",
+        "date": "2024-07-19",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "TJ",
+        "mark": "11.26",
+        "date": "2024-07-19",
+        "location": "Carpinteria"
+    },
+    {
+        "event": "60mH",
+        "mark": "9.10",
+        "date": "2024-12-16",
+        "location": "Simi Valley"
+    },
+    {
+        "event": "LJ",
+        "mark": "5.89",
+        "date": "2024-12-16",
+        "location": "Simi Valley"
+    },
+    {
+        "event": "600m",
+        "mark": "1:23.63",
+        "date": "2024-12-16",
+        "location": "Simi Valley"
+    },
+    {
+        "event": "200m",
+        "mark": "23.33",
+        "date": "2025-01-31",
+        "location": "Moorpark College"
+    },
+    {
+        "event": "400m",
+        "mark": "49.32",
+        "date": "2025-02-07",
+        "location": "Westmont"
+    },
+    {
+        "event": "DT",
+        "mark": "31.21",
+        "date": "2025-02-07",
+        "location": "Westmont"
+    },
+    {
+        "event": "LJ",
+        "mark": "6.24",
+        "date": "2025-02-07",
+        "location": "Westmont"
+    },
+    {
+        "event": "200m",
+        "mark": "23.15",
+        "date": "2025-02-15",
+        "location": "VC"
+    },
+    {
+        "event": "HJ",
+        "mark": "1.85",
+        "date": "2025-02-15",
+        "location": "VC"
+    },
+    {
+        "event": "400m",
+        "mark": "49.94",
+        "date": "2025-02-15",
+        "location": "VC"
+    },
+    {
+        "event": "110mH",
+        "mark": "15.73",
+        "date": "2025-02-15",
+        "location": "VC"
+    },
+    {
+        "event": "JT",
+        "mark": "40.84",
+        "date": "2025-02-22",
+        "location": "CMS"
+    },
+    {
+        "event": "400mH",
+        "mark": "55.04",
+        "date": "2025-02-22",
+        "location": "CMS"
+    },
+    {
+        "event": "800m",
+        "mark": "1:55.78",
+        "date": "2025-03-08",
+        "location": "Occidental"
+    },
+    {
+        "event": "decathlon",
+        "mark": "6677",
+        "date": "2025-04-10",
+        "location": "Azusa Pacific"
+    },
+    {
+        "event": "110mH",
+        "mark": "15.73",
+        "date": "2025-04-10",
+        "location": "Azusa Pacific"
+    },
+    {
+        "event": "SP",
+        "mark": "10.56",
+        "date": "2025-04-10",
+        "location": "Azusa Pacific"
+    },
+    {
+        "event": "DT",
+        "mark": "30.65",
+        "date": "2025-04-10",
+        "location": "Azusa Pacific"
+    },
+    {
+        "event": "JT",
+        "mark": "42.09",
+        "date": "2025-04-10",
+        "location": "Azusa Pacific"
+    },
+    {
+        "event": "LJ",
+        "mark": "6.34",
+        "date": "2025-04-10",
+        "location": "Azusa Pacific"
+    },
+    {
+        "event": "PV",
+        "mark": "4.50",
+        "date": "2025-04-10",
+        "location": "Azusa Pacific"
+    },
+    {
+        "event": "100m",
+        "mark": "11.35",
+        "date": "2025-04-10",
+        "location": "Azusa Pacific"
+    },
+    {
+        "event": "HJ",
+        "mark": "1.82",
+        "date": "2025-04-10",
+        "location": "Azusa Pacific"
+    },
+    {
+        "event": "1500m",
+        "mark": "4:25.74",
+        "date": "2025-04-10",
+        "location": "Azusa Pacific"
+    },
+    {
+        "event": "400m",
+        "mark": "49.79",
+        "date": "2025-04-10",
+        "location": "Azusa Pacific"
+    },
+    {
+        "event": "110mH",
+        "mark": "15.93",
+        "date": "2025-04-26",
+        "location": "UCSB"
+    },
+    {
+        "event": "400m",
+        "mark": "49.28",
+        "date": "2025-05-03",
+        "location": "Occidental"
+    },
+    {
+        "event": "5K",
+        "mark": "18:06.00",
+        "date": "2025-11-27",
+        "location": "Nordhoff"
+    },
+    {
+        "event": "600m",
+        "mark": "1:20.99",
+        "date": "2025-12-13",
+        "location": "Simi Valley"
+    }
+]
