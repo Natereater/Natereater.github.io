@@ -2,21 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Track & Field Performance Visualizer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>Nathaniel Russell's Track Marks</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
             background: linear-gradient(135deg, #0a0e27 0%, #1a1d35 100%);
             color: #e0e0e0;
             overflow: hidden;
             height: 100vh;
+            touch-action: none;
         }
 
         #container {
@@ -26,54 +29,27 @@
         }
 
         header {
-            background: rgba(15, 20, 40, 0.9);
-            padding: 20px 30px;
+            background: rgba(15, 20, 40, 0.95);
+            padding: 12px 15px;
             border-bottom: 2px solid #2a3f5f;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            z-index: 100;
         }
 
         h1 {
-            font-size: 28px;
+            font-size: 20px;
             background: linear-gradient(90deg, #00d4ff, #7b2ff7);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
 
         .controls {
             display: flex;
-            gap: 15px;
+            gap: 10px;
             align-items: center;
             flex-wrap: wrap;
-            margin-top: 10px;
-        }
-
-        .control-group {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        button {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 14px;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(102, 126, 234, 0.4);
-        }
-
-        button:active {
-            transform: translateY(0);
         }
 
         #graph-container {
@@ -86,26 +62,22 @@
         #graph {
             width: 100%;
             height: 100%;
-            cursor: grab;
-        }
-
-        #graph:active {
-            cursor: grabbing;
+            touch-action: none;
         }
 
         #tooltip {
-            position: absolute;
-            background: rgba(20, 25, 45, 0.95);
+            position: fixed;
+            background: rgba(20, 25, 45, 0.98);
             border: 2px solid #667eea;
             border-radius: 8px;
             padding: 12px 16px;
             pointer-events: none;
             opacity: 0;
             transition: opacity 0.2s;
-            font-size: 14px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-            z-index: 1000;
-            max-width: 300px;
+            font-size: 13px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+            z-index: 2000;
+            max-width: 80vw;
         }
 
         #tooltip.visible {
@@ -121,46 +93,72 @@
         .tooltip-label {
             font-weight: bold;
             color: #00d4ff;
-            min-width: 70px;
+            min-width: 60px;
         }
 
         .tooltip-value {
             color: #e0e0e0;
+            word-break: break-word;
+        }
+
+        #legend-toggle {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(102, 126, 234, 0.9);
+            color: white;
+            border: none;
+            padding: 10px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            z-index: 1001;
+            touch-action: manipulation;
         }
 
         #legend {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(20, 25, 45, 0.9);
+            top: 50px;
+            right: 10px;
+            background: rgba(20, 25, 45, 0.98);
             border: 2px solid #2a3f5f;
             border-radius: 8px;
-            padding: 15px;
-            max-height: 80vh;
+            padding: 12px;
+            max-height: 60vh;
             overflow-y: auto;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+            transform: translateX(120%);
+            transition: transform 0.3s ease;
+            max-width: 80vw;
+        }
+
+        #legend.visible {
+            transform: translateX(0);
         }
 
         .legend-title {
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             color: #00d4ff;
-            font-size: 16px;
+            font-size: 14px;
         }
 
         .legend-item {
             display: flex;
             align-items: center;
             gap: 8px;
-            margin: 6px 0;
-            font-size: 13px;
+            margin: 5px 0;
+            font-size: 12px;
         }
 
         .legend-color {
-            width: 16px;
-            height: 16px;
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
-            box-shadow: 0 0 8px currentColor;
+            box-shadow: 0 0 6px currentColor;
+            flex-shrink: 0;
         }
 
         .loading {
@@ -168,32 +166,43 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 24px;
+            font-size: 18px;
             color: #667eea;
+            text-align: center;
+            padding: 0 20px;
         }
 
-        /* Custom scrollbar for legend */
         #legend::-webkit-scrollbar {
-            width: 8px;
+            width: 6px;
         }
 
         #legend::-webkit-scrollbar-track {
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
+            border-radius: 3px;
         }
 
         #legend::-webkit-scrollbar-thumb {
             background: #667eea;
-            border-radius: 4px;
+            border-radius: 3px;
         }
 
         #stats {
             background: rgba(20, 25, 45, 0.9);
             border: 2px solid #2a3f5f;
-            border-radius: 8px;
-            padding: 10px 15px;
-            font-size: 12px;
+            border-radius: 6px;
+            padding: 6px 10px;
+            font-size: 11px;
             color: #a0a0a0;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 18px;
+            }
+
+            header {
+                padding: 10px 12px;
+            }
         }
     </style>
 </head>
@@ -207,6 +216,7 @@
         </header>
         <div id="graph-container">
             <svg id="graph"></svg>
+            <button id="legend-toggle" onclick="toggleLegend()">Legend</button>
             <div id="legend"></div>
             <div id="tooltip"></div>
             <div class="loading" id="loading">Loading data...</div>
@@ -245,7 +255,7 @@
 
         const EXCLUDE_EVENTS = ["4x4"];
 
-        // IAAF Conversion data (abbreviated - you'll need to add the full data)
+        // IAAF Conversion data
         const conversionData = {};
 
         // Transform state
@@ -255,6 +265,10 @@
         let isDragging = false;
         let dragStartX = 0;
         let dragStartY = 0;
+
+        // Touch state for pinch-to-zoom
+        let touches = [];
+        let lastDistance = 0;
 
         let allData = [];
         let svg, tooltip;
@@ -364,12 +378,17 @@
             createLegend();
             updateStats();
 
-            // Add event listeners
+            // Add mouse event listeners (for desktop)
             svg.addEventListener('mousedown', onMouseDown);
             svg.addEventListener('mousemove', onMouseMove);
             svg.addEventListener('mouseup', onMouseUp);
             svg.addEventListener('mouseleave', onMouseUp);
-            svg.addEventListener('wheel', onWheel);
+            svg.addEventListener('wheel', onWheel, { passive: false });
+
+            // Add touch event listeners (for mobile)
+            svg.addEventListener('touchstart', onTouchStart, { passive: false });
+            svg.addEventListener('touchmove', onTouchMove, { passive: false });
+            svg.addEventListener('touchend', onTouchEnd, { passive: false });
         }
 
         function drawGraph() {
@@ -402,8 +421,12 @@
 
             if (allData.length === 0) return;
 
-            // Calculate scales
-            const margin = { top: 40, right: 40, bottom: 60, left: 80 };
+            // Calculate scales with responsive margins
+            const isMobile = window.innerWidth < 768;
+            const margin = isMobile
+                ? { top: 30, right: 20, bottom: 50, left: 60 }
+                : { top: 40, right: 40, bottom: 60, left: 80 };
+
             const chartWidth = width - margin.left - margin.right;
             const chartHeight = height - margin.top - margin.bottom;
 
@@ -450,7 +473,7 @@
                 text.setAttribute('y', height - margin.bottom + 20);
                 text.setAttribute('text-anchor', 'middle');
                 text.setAttribute('fill', '#a0a0a0');
-                text.setAttribute('font-size', '12');
+                text.setAttribute('font-size', isMobile ? '10' : '12');
                 text.textContent = year;
                 gridGroup.appendChild(text);
             }
@@ -472,11 +495,11 @@
                 gridGroup.appendChild(line);
 
                 const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-                text.setAttribute('x', margin.left - 10);
+                text.setAttribute('x', margin.left - 8);
                 text.setAttribute('y', y + 4);
                 text.setAttribute('text-anchor', 'end');
                 text.setAttribute('fill', '#a0a0a0');
-                text.setAttribute('font-size', '12');
+                text.setAttribute('font-size', isMobile ? '10' : '12');
                 text.textContent = points;
                 gridGroup.appendChild(text);
             }
@@ -492,41 +515,51 @@
                 const y = yScale(d.points);
                 const color = EVENT_COLORS[d.event] || '#c0c0c0';
 
-                // Draw circle
+                // Draw circle with larger touch target on mobile
                 const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
                 circle.setAttribute('cx', x);
                 circle.setAttribute('cy', y);
-                circle.setAttribute('r', 6);
+                circle.setAttribute('r', isMobile ? 8 : 6);
                 circle.setAttribute('fill', color);
                 circle.setAttribute('opacity', '0.8');
                 circle.setAttribute('filter', 'url(#glow)');
                 circle.setAttribute('data-index', i);
                 circle.style.cursor = 'pointer';
 
+                // Touch events for tooltip
+                circle.addEventListener('touchstart', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    showTooltipTouch(e, d);
+                });
+
+                // Mouse events for desktop
                 circle.addEventListener('mouseenter', (e) => showTooltip(e, d));
                 circle.addEventListener('mouseleave', hideTooltip);
 
-                // Hover effect
+                // Hover/touch effect
                 circle.addEventListener('mouseenter', () => {
-                    circle.setAttribute('r', 9);
+                    circle.setAttribute('r', isMobile ? 11 : 9);
                     circle.setAttribute('opacity', '1');
                 });
                 circle.addEventListener('mouseleave', () => {
-                    circle.setAttribute('r', 6);
+                    circle.setAttribute('r', isMobile ? 8 : 6);
                     circle.setAttribute('opacity', '0.8');
                 });
 
                 pointsGroup.appendChild(circle);
 
-                // Add mark label
-                const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-                text.setAttribute('x', x + 8);
-                text.setAttribute('y', y + 3);
-                text.setAttribute('fill', '#e0e0e0');
-                text.setAttribute('font-size', '9');
-                text.setAttribute('opacity', '0.6');
-                text.textContent = d.mark;
-                pointsGroup.appendChild(text);
+                // Add mark labels only on larger screens
+                if (!isMobile) {
+                    const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                    text.setAttribute('x', x + 8);
+                    text.setAttribute('y', y + 3);
+                    text.setAttribute('fill', '#e0e0e0');
+                    text.setAttribute('font-size', '9');
+                    text.setAttribute('opacity', '0.6');
+                    text.textContent = d.mark;
+                    pointsGroup.appendChild(text);
+                }
             });
 
             g.appendChild(pointsGroup);
@@ -537,17 +570,17 @@
             xLabel.setAttribute('y', height - 10);
             xLabel.setAttribute('text-anchor', 'middle');
             xLabel.setAttribute('fill', '#00d4ff');
-            xLabel.setAttribute('font-size', '14');
+            xLabel.setAttribute('font-size', isMobile ? '12' : '14');
             xLabel.setAttribute('font-weight', 'bold');
             xLabel.textContent = 'Date';
             g.appendChild(xLabel);
 
             const yLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
             yLabel.setAttribute('x', -(height / 2));
-            yLabel.setAttribute('y', 20);
+            yLabel.setAttribute('y', 15);
             yLabel.setAttribute('text-anchor', 'middle');
             yLabel.setAttribute('fill', '#00d4ff');
-            yLabel.setAttribute('font-size', '14');
+            yLabel.setAttribute('font-size', isMobile ? '12' : '14');
             yLabel.setAttribute('font-weight', 'bold');
             yLabel.setAttribute('transform', 'rotate(-90)');
             yLabel.textContent = 'World Athletics Points';
@@ -575,13 +608,18 @@
                 const color = EVENT_COLORS[event] || '#c0c0c0';
                 html += `
                     <div class="legend-item">
-                        <div class="legend-color" style="background-color: ${color}; box-shadow: 0 0 8px ${color};"></div>
+                        <div class="legend-color" style="background-color: ${color}; box-shadow: 0 0 6px ${color};"></div>
                         <span>${event}</span>
                     </div>
                 `;
             });
 
             legend.innerHTML = html;
+        }
+
+        function toggleLegend() {
+            const legend = document.getElementById('legend');
+            legend.classList.toggle('visible');
         }
 
         function updateStats() {
@@ -618,6 +656,55 @@
             tooltip.classList.add('visible');
         }
 
+        function showTooltipTouch(event, data) {
+            const touch = event.touches[0];
+
+            tooltip.innerHTML = `
+                <div class="tooltip-row">
+                    <span class="tooltip-label">Event:</span>
+                    <span class="tooltip-value">${data.event}</span>
+                </div>
+                <div class="tooltip-row">
+                    <span class="tooltip-label">Mark:</span>
+                    <span class="tooltip-value">${data.mark}</span>
+                </div>
+                <div class="tooltip-row">
+                    <span class="tooltip-label">Points:</span>
+                    <span class="tooltip-value">${data.points}</span>
+                </div>
+                <div class="tooltip-row">
+                    <span class="tooltip-label">Date:</span>
+                    <span class="tooltip-value">${data.dateStr}</span>
+                </div>
+                <div class="tooltip-row">
+                    <span class="tooltip-label">Location:</span>
+                    <span class="tooltip-value">${data.location}</span>
+                </div>
+            `;
+
+            // Position tooltip to avoid going off screen
+            const tooltipRect = tooltip.getBoundingClientRect();
+            let left = touch.pageX + 15;
+            let top = touch.pageY - tooltipRect.height - 15;
+
+            // Adjust if going off right edge
+            if (left + tooltipRect.width > window.innerWidth) {
+                left = touch.pageX - tooltipRect.width - 15;
+            }
+
+            // Adjust if going off top edge
+            if (top < 0) {
+                top = touch.pageY + 15;
+            }
+
+            tooltip.style.left = left + 'px';
+            tooltip.style.top = top + 'px';
+            tooltip.classList.add('visible');
+
+            // Auto-hide tooltip after 3 seconds
+            setTimeout(hideTooltip, 3000);
+        }
+
         function hideTooltip() {
             tooltip.classList.remove('visible');
         }
@@ -629,6 +716,7 @@
             }
         }
 
+        // Mouse events (desktop)
         function onMouseDown(e) {
             if (e.target.tagName === 'circle') return;
             isDragging = true;
@@ -666,25 +754,91 @@
             applyTransform();
         }
 
-        function resetView() {
-            scale = 1;
-            translateX = 0;
-            translateY = 0;
-            applyTransform();
+        // Touch events (mobile)
+        function onTouchStart(e) {
+            // Hide tooltip on new touch
+            hideTooltip();
+
+            if (e.target.tagName === 'circle') {
+                return; // Let circle handle its own touch
+            }
+
+            touches = Array.from(e.touches);
+
+            if (touches.length === 1) {
+                // Single finger pan
+                isDragging = true;
+                dragStartX = touches[0].clientX - translateX;
+                dragStartY = touches[0].clientY - translateY;
+            } else if (touches.length === 2) {
+                // Two finger pinch-to-zoom
+                isDragging = false;
+                const dx = touches[0].clientX - touches[1].clientX;
+                const dy = touches[0].clientY - touches[1].clientY;
+                lastDistance = Math.sqrt(dx * dx + dy * dy);
+            }
         }
 
-        function zoomIn() {
-            scale *= 1.2;
-            applyTransform();
+        function onTouchMove(e) {
+            e.preventDefault();
+
+            touches = Array.from(e.touches);
+
+            if (touches.length === 1 && isDragging) {
+                // Single finger pan
+                translateX = touches[0].clientX - dragStartX;
+                translateY = touches[0].clientY - dragStartY;
+                applyTransform();
+            } else if (touches.length === 2) {
+                // Two finger pinch-to-zoom
+                const dx = touches[0].clientX - touches[1].clientX;
+                const dy = touches[0].clientY - touches[1].clientY;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                if (lastDistance > 0) {
+                    const delta = distance / lastDistance;
+                    const newScale = scale * delta;
+
+                    if (newScale >= 0.1 && newScale <= 10) {
+                        // Calculate center point between fingers
+                        const rect = svg.getBoundingClientRect();
+                        const centerX = ((touches[0].clientX + touches[1].clientX) / 2) - rect.left;
+                        const centerY = ((touches[0].clientY + touches[1].clientY) / 2) - rect.top;
+
+                        translateX = centerX - (centerX - translateX) * delta;
+                        translateY = centerY - (centerY - translateY) * delta;
+                        scale = newScale;
+
+                        applyTransform();
+                    }
+                }
+
+                lastDistance = distance;
+            }
         }
 
-        function zoomOut() {
-            scale *= 0.8;
-            applyTransform();
+        function onTouchEnd(e) {
+            touches = Array.from(e.touches);
+
+            if (touches.length === 0) {
+                isDragging = false;
+                lastDistance = 0;
+            } else if (touches.length === 1) {
+                // Reset for single finger pan
+                isDragging = true;
+                dragStartX = touches[0].clientX - translateX;
+                dragStartY = touches[0].clientY - translateY;
+                lastDistance = 0;
+            }
         }
 
         // Initialize
         loadData();
+
+        // Redraw on orientation change
+        window.addEventListener('resize', () => {
+            drawGraph();
+        });
     </script>
 </body>
 </html>
