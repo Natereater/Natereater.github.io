@@ -393,11 +393,17 @@
 
         function drawGraph() {
             const container = document.getElementById('graph-container');
-            const width = container.clientWidth;
+            const isMobile = window.innerWidth < 768;
+
+            // Make graph much wider on mobile for better readability
+            // Use 3x viewport width on mobile, 1.5x on desktop
+            const widthMultiplier = isMobile ? 3 : 1.5;
+            const width = container.clientWidth * widthMultiplier;
             const height = container.clientHeight;
 
             svg.setAttribute('width', width);
             svg.setAttribute('height', height);
+            svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
             svg.innerHTML = '';
 
             // Add defs for glow effect
