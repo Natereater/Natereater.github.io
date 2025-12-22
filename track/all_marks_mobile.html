@@ -539,11 +539,15 @@
 
                 // Hover/touch effect
                 circle.addEventListener('mouseenter', () => {
-                    circle.setAttribute('r', isMobile ? 11 : 9);
+                    const baseSize = isMobile ? 8 : 6;
+                    const hoverSize = (baseSize * 1.4) / Math.sqrt(scale);
+                    circle.setAttribute('r', hoverSize);
                     circle.setAttribute('opacity', '1');
                 });
                 circle.addEventListener('mouseleave', () => {
-                    circle.setAttribute('r', isMobile ? 8 : 6);
+                    const baseSize = isMobile ? 8 : 6;
+                    const normalSize = baseSize / Math.sqrt(scale);
+                    circle.setAttribute('r', normalSize);
                     circle.setAttribute('opacity', '0.8');
                 });
 
@@ -714,6 +718,16 @@
             if (g) {
                 g.setAttribute('transform', `translate(${translateX}, ${translateY}) scale(${scale})`);
             }
+
+            // Adjust circle sizes inversely to zoom level to prevent overlap
+            const circles = document.querySelectorAll('circle[data-index]');
+            const isMobile = window.innerWidth < 768;
+            const baseSize = isMobile ? 8 : 6;
+            const newRadius = baseSize / Math.sqrt(scale);
+
+            circles.forEach(circle => {
+                circle.setAttribute('r', newRadius);
+            });
         }
 
         // Mouse events (desktop)
