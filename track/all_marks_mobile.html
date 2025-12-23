@@ -558,17 +558,18 @@
 
                 pointsGroup.appendChild(circle);
 
-                // Add mark labels only on larger screens
-                if (!isMobile) {
-                    const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-                    text.setAttribute('x', x + 8);
-                    text.setAttribute('y', y + 3);
-                    text.setAttribute('fill', '#e0e0e0');
-                    text.setAttribute('font-size', '9');
-                    text.setAttribute('opacity', '0.6');
-                    text.textContent = d.mark;
-                    pointsGroup.appendChild(text);
-                }
+                // Add mark labels that scale with zoom
+                const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                text.setAttribute('x', x + 8);
+                text.setAttribute('y', y + 3);
+                text.setAttribute('fill', '#e0e0e0');
+                text.setAttribute('font-size', '9');
+                text.setAttribute('opacity', scale > 2 ? '0.7' : '0.3');
+                text.setAttribute('data-base-x', x);
+                text.setAttribute('data-base-y', y);
+                text.setAttribute('data-mark-label', 'true');
+                text.textContent = d.mark;
+                pointsGroup.appendChild(text);
             });
 
             g.appendChild(pointsGroup);
@@ -733,6 +734,31 @@
             circles.forEach(circle => {
                 circle.setAttribute('r', newRadius);
             });
+
+            // Adjust mark label sizes and positions to scale with zoom
+            const labels = document.querySelectorAll('text[data-mark-label]');
+            const baseFontSize = 9;
+            const newFontSize = baseFontSize / Math.sqrt(scale);
+            const offsetX = 8 / Math.sqrt(scale);
+            const offsetY = 3 / Math.sqrt(scale);
+
+            labels.forEach(label => {
+                const baseX = parseFloat(label.getAttribute('data-base-x'));
+                const baseY = parseFloat(label.getAttribute('data-base-y'));
+
+                label.setAttribute('font-size', newFontSize);
+                label.setAttribute('x', baseX + offsetX);
+                label.setAttribute('y', baseY + offsetY);
+
+                // Show labels more prominently when zoomed in
+                if (scale > 2) {
+                    label.setAttribute('opacity', '0.7');
+                } else if (scale > 1) {
+                    label.setAttribute('opacity', '0.5');
+                } else {
+                    label.setAttribute('opacity', '0.3');
+                }
+            });
         }
 
         // Mouse events (desktop)
@@ -760,7 +786,7 @@
             const delta = e.deltaY > 0 ? 0.9 : 1.1;
             const newScale = scale * delta;
 
-            if (newScale < 0.1 || newScale > 10) return;
+            if (newScale < 0.1 || newScale > 50) return;
 
             const rect = svg.getBoundingClientRect();
             const mouseX = e.clientX - rect.left;
@@ -818,7 +844,7 @@
                     const delta = distance / lastDistance;
                     const newScale = scale * delta;
 
-                    if (newScale >= 0.1 && newScale <= 10) {
+                    if (newScale >= 0.1 && newScale <= 50) {
                         // Calculate center point between fingers
                         const rect = svg.getBoundingClientRect();
                         const centerX = ((touches[0].clientX + touches[1].clientX) / 2) - rect.left;
