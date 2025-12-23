@@ -788,13 +788,27 @@
 
             if (newScale < 0.1 || newScale > 50) return;
 
-            const rect = svg.getBoundingClientRect();
-            const mouseX = e.clientX - rect.left;
-            const mouseY = e.clientY - rect.top;
+            // Get mouse position in SVG coordinates
+            const point = svg.createSVGPoint();
+            point.x = e.clientX;
+            point.y = e.clientY;
+            const svgPoint = point.matrixTransform(svg.getScreenCTM().inverse());
 
-            translateX = mouseX - (mouseX - translateX) * delta;
-            translateY = mouseY - (mouseY - translateY) * delta;
+            // Get the point in the current transform space
+            const g = document.getElementById('main-group');
+            const transform = g.getScreenCTM();
+            const beforeZoom = point.matrixTransform(transform.inverse());
+
             scale = newScale;
+            applyTransform();
+
+            // Get the point after zoom
+            const afterTransform = g.getScreenCTM();
+            const afterZoom = point.matrixTransform(afterTransform.inverse());
+
+            // Adjust translation to keep the point under the cursor
+            translateX += (afterZoom.x - beforeZoom.x) * scale;
+            translateY += (afterZoom.y - beforeZoom.y) * scale;
 
             applyTransform();
         }
@@ -845,14 +859,30 @@
                     const newScale = scale * delta;
 
                     if (newScale >= 0.1 && newScale <= 50) {
-                        // Calculate center point between fingers
-                        const rect = svg.getBoundingClientRect();
-                        const centerX = ((touches[0].clientX + touches[1].clientX) / 2) - rect.left;
-                        const centerY = ((touches[0].clientY + touches[1].clientY) / 2) - rect.top;
+                        // Calculate center point between fingers in screen coordinates
+                        const centerScreenX = (touches[0].clientX + touches[1].clientX) / 2;
+                        const centerScreenY = (touches[0].clientY + touches[1].clientY) / 2;
 
-                        translateX = centerX - (centerX - translateX) * delta;
-                        translateY = centerY - (centerY - translateY) * delta;
+                        // Get center point in SVG coordinates
+                        const point = svg.createSVGPoint();
+                        point.x = centerScreenX;
+                        point.y = centerScreenY;
+
+                        // Get the point in the current transform space
+                        const g = document.getElementById('main-group');
+                        const transform = g.getScreenCTM();
+                        const beforeZoom = point.matrixTransform(transform.inverse());
+
                         scale = newScale;
+                        applyTransform();
+
+                        // Get the point after zoom
+                        const afterTransform = g.getScreenCTM();
+                        const afterZoom = point.matrixTransform(afterTransform.inverse());
+
+                        // Adjust translation to keep the point under the fingers
+                        translateX += (afterZoom.x - beforeZoom.x) * scale;
+                        translateY += (afterZoom.y - beforeZoom.y) * scale;
 
                         applyTransform();
                     }
