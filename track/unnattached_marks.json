@@ -826,5 +826,17 @@
         "mark": "1:56.01",
         "date": "2026-01-17",
         "location": "Pasadena HS"
+    },
+    {
+        "event": "300m",
+        "mark": "35.57",
+        "date": "2026-02-07",
+        "location": "Moorpark College"
+    },
+    {
+        "event": "4x4",
+        "mark": "3:19.46",
+        "date": "2026-02-07",
+        "location": "Moorpark College"
     }
 ]
