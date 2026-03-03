@@ -844,5 +844,17 @@
         "mark": "1:56.87",
         "date": "2026-02-20",
         "location": "VC"
+    },
+    {
+        "event": "400m",
+        "mark": "50.39",
+        "date": "2026-02-28",
+        "location": "Cerritos"
+    },
+    {
+        "event": "200m",
+        "mark": "23.15",
+        "date": "2026-02-28",
+        "location": "Cerritos"
     }
 ]
