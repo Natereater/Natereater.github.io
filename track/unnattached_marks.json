@@ -868,5 +868,17 @@
         "mark": "1:55.06",
         "date": "2026-03-14",
         "location": "Occidental"
+    },
+    {
+        "event": "4x4",
+        "mark": "3:19.06",
+        "date": "2026-04-03",
+        "location": "Moorpark College"
+    },
+    {
+        "event": "800m",
+        "mark": "1:54.80",
+        "date": "2026-04-11",
+        "location": "UCLA"
     }
 ]
