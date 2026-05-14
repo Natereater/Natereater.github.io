@@ -880,5 +880,17 @@
         "mark": "1:54.80",
         "date": "2026-04-11",
         "location": "UCLA"
+    },
+    {
+        "event": "400m",
+        "mark": "48.96",
+        "date": "2026-05-08",
+        "location": "Hayward Field"
+    },
+    {
+        "event": "200m",
+        "mark": "23.08",
+        "date": "2026-05-08",
+        "location": "Hayward Field"
     }
 ]
