@@ -236,8 +236,14 @@ const MIN_TIME_SCORE = -50;
 const FAILURE_MULTIPLIER = 0;
 const CREDITS_PER_POINT = 20;
 
-// Hazard 5+ modifiers: per-point hazard contribution
-const HAZ5_WEIGHTS = { aggressive: 0.2, more: 0.2, tough: 0.3, vuln: 0.3 };
+// Hazard 5+ modifiers: id, label, icon, per-point hazard weight, CSV column
+const HAZ5_MODS = [
+    { key: "aggressive", id: "haz_aggressive", label: "Aggressive Enemies",   icon: "assets/haz5_aggressive.png", weight: 0.2, csv: "Haz Aggressive" },
+    { key: "more",       id: "haz_more",       label: "More Enemies",         icon: "assets/haz5_more.png",       weight: 0.2, csv: "Haz More" },
+    { key: "tough",      id: "haz_tough",      label: "Tough Enemies",        icon: "assets/haz5_tough.png",      weight: 0.3, csv: "Haz Tough" },
+    { key: "vuln",       id: "haz_vuln",       label: "Player Vulnerability", icon: "assets/haz5_vuln.png",       weight: 0.3, csv: "Haz Vuln" },
+];
+const HAZ_OFF_ICON = "assets/haz_off.png";
 
 // -----------------------------
 //        ICON MAPS
@@ -358,15 +364,18 @@ class Run {
 // -----------------------------
 //        FORM READING
 // -----------------------------
+function read_haz_mods() {
+    const base = parseInt(val("select_hazard"));
+    const mods = {};
+    HAZ5_MODS.forEach(m => mods[m.key] = base === 5 ? (parseInt(val(m.id)) || 0) : 0);
+    return mods;
+}
+
 function effective_hazard() {
     const base = parseInt(val("select_hazard"));
     if (base < 5) return base;
-    const a = parseInt(val("haz_aggressive")) || 0;
-    const m = parseInt(val("haz_more")) || 0;
-    const t = parseInt(val("haz_tough")) || 0;
-    const p = parseInt(val("haz_vuln")) || 0;
-    const haz = 5 + a * HAZ5_WEIGHTS.aggressive + m * HAZ5_WEIGHTS.more
-                  + t * HAZ5_WEIGHTS.tough + p * HAZ5_WEIGHTS.vuln;
+    let haz = 5;
+    HAZ5_MODS.forEach(m => haz += (parseInt(val(m.id)) || 0) * m.weight);
     return Math.round(haz * 100) / 100;
 }
 
@@ -390,6 +399,7 @@ function read_form() {
         length: parseInt(val("select_length")),
         complexity: parseInt(val("select_complexity")),
         hazard: effective_hazard(),
+        haz_mods: read_haz_mods(),
         anomaly: val("select_anomaly"),
         warning_1: val("select_warning_1"),
         warning_2: val("select_warning_2"),
@@ -450,13 +460,31 @@ function update_icon(chipId, src) {
     }
 }
 
+// 5 overlapping "!" pips: the first `level` lit in that tier's colour, the rest grey.
+function render_hazard_pips(level) {
+    const el = document.getElementById("hazard_pips");
+    let html = "";
+    for (let i = 1; i <= 5; i++) {
+        html += `<img src="${i <= level ? HAZARD_ICONS[level] : HAZ_OFF_ICON}" alt="">`;
+    }
+    el.innerHTML = html;
+}
+
+// small icon + count chips for the active Hazard 5+ modifiers
+function haz_mods_html(mods) {
+    if (!mods) return "";
+    return HAZ5_MODS.filter(m => (mods[m.key] || 0) > 0)
+        .map(m => `<span class="haz-mini"><img src="${m.icon}" alt="${m.label}" title="${m.label}"><b>${mods[m.key]}</b></span>`)
+        .join("");
+}
+
 function refresh_previews() {
     update_icon("icon_mission", MISSION_ICONS[val("select_mission_type")]);
     update_icon("icon_biome", BIOME_ICONS[val("select_biome")]);
     update_icon("icon_anomaly", ANOMALY_ICONS[val("select_anomaly")]);
     update_icon("icon_warning_1", WARNING_ICONS[val("select_warning_1")]);
     update_icon("icon_warning_2", WARNING_ICONS[val("select_warning_2")]);
-    update_icon("icon_hazard", HAZARD_ICONS[parseInt(val("select_hazard"))]);
+    render_hazard_pips(parseInt(val("select_hazard")));
     document.getElementById("display_length_img").src = `assets/length_${val("select_length")}.webp`;
     document.getElementById("display_complexity_img").src = `assets/complexity_${val("select_complexity")}.webp`;
 }
@@ -484,9 +512,10 @@ function render_breakdown() {
         ["Events", r.secondary || r.bonus_list.length ? (r.bonus_list.length + (r.secondary ? 1 : 0)) + " objective(s)" : "none", "+" + fmt(p.secondary + p.events)],
     ];
 
+    const modsHtml = haz_mods_html(r.haz_mods);
     const mults = [
-        ["Hazard", "haz " + r.hazard, "×" + p.hazardMult.toFixed(2)],
-        ["Mutators", mutator_label(r), "×" + p.mutatorMult.toFixed(3)],
+        { k: "Hazard", subHtml: `haz ${r.hazard} ${modsHtml}`, v: "×" + p.hazardMult.toFixed(2) },
+        { k: "Mutators", sub: mutator_label(r), v: "×" + p.mutatorMult.toFixed(3) },
     ];
 
     let html = '<div class="bd-group">';
@@ -495,8 +524,9 @@ function render_breakdown() {
     });
     html += `<div class="bd-row subtotal"><span class="bd-k">Base Score</span><span class="bd-v">${fmt(p.additive)}</span></div>`;
     html += '</div><div class="bd-group">';
-    mults.forEach(([k, sub, v]) => {
-        html += `<div class="bd-row"><span class="bd-k">${k}<em>${esc(sub)}</em></span><span class="bd-v mult">${v}</span></div>`;
+    mults.forEach(({ k, sub, subHtml, v }) => {
+        const subContent = subHtml != null ? subHtml : esc(sub);
+        html += `<div class="bd-row"><span class="bd-k">${k}<em>${subContent}</em></span><span class="bd-v mult">${v}</span></div>`;
     });
     if (!r.success) html += `<div class="bd-row"><span class="bd-k">Outcome<em>failed</em></span><span class="bd-v mult">×0</span></div>`;
     html += "</div>";
@@ -560,7 +590,7 @@ function render_runs() {
             <td><div class="mt-cell">${icon_tag(BIOME_ICONS[r.biome], "bi-ic")}<span>${esc(r.biome)}</span></div></td>
             <td><img class="lc-img" src="assets/length_${r.length}.webp" alt="L${r.length}"></td>
             <td><img class="lc-img" src="assets/complexity_${r.complexity}.webp" alt="C${r.complexity}"></td>
-            <td><span class="haz-pill">${r.hazard}</span></td>
+            <td><div class="haz-cell"><span class="haz-pill">${r.hazard}</span><span class="haz-mods">${haz_mods_html(r.haz_mods)}</span></div></td>
             <td>${anomaly_cell(r.anomaly)}</td>
             <td>${warning_cell(r.warning_1)}</td>
             <td>${warning_cell(r.warning_2)}</td>
@@ -641,8 +671,9 @@ function load_runs() {
 //        CSV IMPORT / EXPORT
 // -----------------------------
 const CSV_HEADERS = [
-    "Mission Type", "Biome", "Success", "Length", "Complexity", "Hazard", "Time",
-    "Anomaly", "Warning 1", "Warning 2", "Credits", "Secondary", "Bonus Objectives", "Score",
+    "Mission Type", "Biome", "Success", "Length", "Complexity", "Hazard",
+    ...HAZ5_MODS.map(m => m.csv),
+    "Time", "Anomaly", "Warning 1", "Warning 2", "Credits", "Secondary", "Bonus Objectives", "Score",
 ];
 
 function csv_field(s) {
@@ -650,17 +681,43 @@ function csv_field(s) {
     return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
 }
 
-function export_csv() {
-    if (!global_run_list.length) { alert("No missions to export yet."); return; }
+function build_csv() {
     const lines = [CSV_HEADERS.join(",")];
     for (const r of global_run_list) {
+        const m = r.haz_mods || {};
         lines.push([
-            r.mission_type, r.biome, r.success ? "True" : "False", r.length, r.complexity,
-            r.hazard, r.time_string, r.anomaly, r.warning_1, r.warning_2, r.credits,
+            r.mission_type, r.biome, r.success ? "True" : "False", r.length, r.complexity, r.hazard,
+            ...HAZ5_MODS.map(mod => m[mod.key] || 0),
+            r.time_string, r.anomaly, r.warning_1, r.warning_2, r.credits,
             r.secondary ? "True" : "False", (r.bonus_list || []).join("|"), r.score,
         ].map(csv_field).join(","));
     }
-    const blob = new Blob([lines.join("\r\n")], { type: "text/csv" });
+    return lines.join("\r\n");
+}
+
+async function export_csv() {
+    if (!global_run_list.length) { alert("No missions to export yet."); return; }
+    const csv = build_csv();
+    const blob = new Blob([csv], { type: "text/csv" });
+
+    // Preferred: real "Save As" dialog via the File System Access API.
+    if (window.showSaveFilePicker) {
+        try {
+            const handle = await window.showSaveFilePicker({
+                suggestedName: "drg_missions.csv",
+                types: [{ description: "CSV file", accept: { "text/csv": [".csv"] } }],
+            });
+            const writable = await handle.createWritable();
+            await writable.write(blob);
+            await writable.close();
+            return;
+        } catch (e) {
+            if (e.name === "AbortError") return; // user cancelled the dialog
+            // otherwise fall through to the download fallback
+        }
+    }
+
+    // Fallback for browsers without the picker.
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
     a.download = "drg_missions.csv";
@@ -718,6 +775,9 @@ function load_csv_text(text) {
         const bonus_obj = bonus_list.reduce((sum, lbl) => sum + (BONUS_OBJECTIVES[LABEL_TO_ID[lbl]] || 0), 0);
         const time_string = get(row, "Time");
 
+        const haz_mods = {};
+        HAZ5_MODS.forEach(m => haz_mods[m.key] = parseInt(get(row, m.csv)) || 0);
+
         const data = {
             id: next_id++,
             mission_type,
@@ -726,6 +786,7 @@ function load_csv_text(text) {
             length: parseInt(get(row, "Length")) || 1,
             complexity: parseInt(get(row, "Complexity")) || 1,
             hazard: parseFloat(get(row, "Hazard")) || 5,
+            haz_mods,
             anomaly: ANOMALY_MULTIPLIERS[get(row, "Anomaly")] != null ? get(row, "Anomaly") : NONE,
             warning_1: WARNING_MULTIPLIERS[get(row, "Warning 1")] != null ? get(row, "Warning 1") : NONE,
             warning_2: WARNING_MULTIPLIERS[get(row, "Warning 2")] != null ? get(row, "Warning 2") : NONE,

@@ -33,6 +33,9 @@
 
 * { box-sizing: border-box; }
 
+/* the [hidden] attribute must win over .field { display:flex } etc. */
+[hidden] { display: none !important; }
+
 html { scroll-behavior: smooth; }
 
 body {
@@ -324,31 +327,55 @@ select option {
 .haz5 {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px 14px;
-    align-items: flex-end;
+    gap: 12px;
+    align-items: stretch;
     background: var(--surface-3);
     border: 1px solid var(--line);
     border-radius: var(--radius-sm);
     padding: 14px;
 }
-.haz5-mod { display: flex; flex-direction: column; gap: 6px; }
+.haz5-mod {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    width: 116px;
+}
+.haz5-ic { width: 34px; height: 34px; object-fit: contain; }
 .haz5-name {
     font-size: 11px;
     color: var(--text);
     letter-spacing: 0.03em;
+    line-height: 1.25;
 }
 .haz5-name em {
+    display: block;
     font-style: normal;
     color: var(--text-dim);
-    margin-left: 4px;
+    margin-top: 2px;
 }
 .haz5-eff {
     margin-left: auto;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    justify-content: center;
     gap: 4px;
 }
+
+/* ---------------- hazard pips (overlapping !) ---------------- */
+.haz-pips { display: flex; align-items: center; padding-left: 4px; }
+.haz-pips img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+.haz-pips img + img { margin-left: -5px; }
 .haz5-val {
     font-family: var(--display);
     font-weight: 700;
@@ -410,6 +437,20 @@ select option {
 .mt-ic { width: 26px; height: 26px; object-fit: contain; flex: 0 0 auto; }
 .bi-ic { width: 22px; height: 22px; object-fit: contain; flex: 0 0 auto; }
 .mut-ic { width: 18px; height: 18px; object-fit: contain; }
+
+/* hazard 5+ modifier mini-chips (breakdown sub-line + table) */
+.haz-mini {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    margin-right: 5px;
+    color: var(--text-dim);
+}
+.haz-mini img { width: 14px; height: 14px; object-fit: contain; }
+.haz-mini b { color: var(--text); font-weight: 700; }
+.haz-cell { display: flex; align-items: center; gap: 6px; }
+.haz-cell .haz-mods { display: inline-flex; gap: 3px; }
+.haz-cell .haz-mods img { width: 14px; height: 14px; object-fit: contain; }
 
 .btn-add {
     width: 100%;
