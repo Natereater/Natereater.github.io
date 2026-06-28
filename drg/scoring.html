@@ -31,20 +31,7 @@
                 <div class="field full">
                     <label class="lab">Mission Type</label>
                     <div class="control">
-                        <div class="select-shell">
-                            <select id="select_mission_type">
-                                <option value="Mining Expedition">Mining Expedition</option>
-                                <option value="Egg Hunt">Egg Hunt</option>
-                                <option value="On-Site Refining">On-Site Refining</option>
-                                <option value="Salvage Operation">Salvage Operation</option>
-                                <option value="Point Extraction">Point Extraction</option>
-                                <option value="Escort Duty">Escort Duty</option>
-                                <option value="Elimination">Elimination</option>
-                                <option value="Industrial Sabotage">Industrial Sabotage</option>
-                                <option value="Deep Scan">Deep Scan</option>
-                                <option value="Heavy Extraction">Heavy Extraction &nbsp;(NEW)</option>
-                            </select>
-                        </div>
+                        <div class="select-shell"><select id="select_mission_type"></select></div>
                         <div class="icon-chip empty" id="icon_mission"></div>
                     </div>
                 </div>
@@ -52,22 +39,24 @@
                 <div class="field full">
                     <label class="lab">Biome</label>
                     <div class="control">
-                        <div class="select-shell">
-                            <select id="select_biome">
-                                <option value="Crystalline Caverns">Crystalline Caverns</option>
-                                <option value="Salt Pits">Salt Pits</option>
-                                <option value="Fungus Bogs">Fungus Bogs</option>
-                                <option value="Radioactive Exclusion Zone">Radioactive Exclusion Zone</option>
-                                <option value="Dense Biozone">Dense Biozone</option>
-                                <option value="Glacial Strata">Glacial Strata</option>
-                                <option value="Hollow Bough">Hollow Bough</option>
-                                <option value="Azure Weald">Azure Weald</option>
-                                <option value="Magma Core">Magma Core</option>
-                                <option value="Sandblasted Corridors">Sandblasted Corridors</option>
-                                <option value="Ossuary Depths">Ossuary Depths &nbsp;(NEW)</option>
-                            </select>
-                        </div>
+                        <div class="select-shell"><select id="select_biome"></select></div>
                         <div class="icon-chip empty" id="icon_biome"></div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="lab">Length</label>
+                    <div class="control">
+                        <div class="select-shell"><select id="select_length"></select></div>
+                        <div class="icon-chip wide"><img id="display_length_img" src="assets/length_1.webp" alt=""></div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="lab">Complexity</label>
+                    <div class="control">
+                        <div class="select-shell"><select id="select_complexity"></select></div>
+                        <div class="icon-chip wide"><img id="display_complexity_img" src="assets/complexity_1.webp" alt=""></div>
                     </div>
                 </div>
 
@@ -83,78 +72,53 @@
 
                 <div class="field">
                     <label class="lab">Hazard</label>
-                    <div class="select-shell">
-                        <select id="select_hazard">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5" selected>5</option>
-                            <option value="5.25">5.25</option>
-                            <option value="5.5">5.5</option>
-                            <option value="5.75">5.75</option>
-                            <option value="6">6</option>
-                            <option value="6.25">6.25</option>
-                            <option value="6.5">6.5</option>
-                            <option value="6.75">6.75</option>
-                            <option value="7">7</option>
-                        </select>
+                    <div class="control">
+                        <div class="select-shell"><select id="select_hazard"></select></div>
+                        <div class="icon-chip" id="icon_hazard"></div>
+                    </div>
+                </div>
+
+                <!-- Hazard 5+ modifiers (shown only on Hazard 5) -->
+                <div class="field full" id="haz5_panel" hidden>
+                    <label class="lab">Hazard 5+ Modifiers</label>
+                    <div class="haz5">
+                        <div class="haz5-mod">
+                            <span class="haz5-name">Aggressive Enemies <em>+0.2</em></span>
+                            <div class="select-shell sm"><select id="haz_aggressive"><option>0</option><option>1</option><option>2</option></select></div>
+                        </div>
+                        <div class="haz5-mod">
+                            <span class="haz5-name">More Enemies <em>+0.2</em></span>
+                            <div class="select-shell sm"><select id="haz_more"><option>0</option><option>1</option><option>2</option></select></div>
+                        </div>
+                        <div class="haz5-mod">
+                            <span class="haz5-name">Tough Enemies <em>+0.3</em></span>
+                            <div class="select-shell sm"><select id="haz_tough"><option>0</option><option>1</option><option>2</option></select></div>
+                        </div>
+                        <div class="haz5-mod">
+                            <span class="haz5-name">Player Vulnerability <em>+0.3</em></span>
+                            <div class="select-shell sm"><select id="haz_vuln"><option>0</option><option>1</option><option>2</option></select></div>
+                        </div>
+                        <div class="haz5-eff">
+                            <span class="lab">Effective Hazard</span>
+                            <span class="haz5-val" id="haz_effective">5.0</span>
+                        </div>
                     </div>
                 </div>
 
                 <div class="field">
-                    <label class="lab">Length</label>
-                    <div class="control">
-                        <div class="select-shell">
-                            <select id="select_length">
-                                <option value="1">1</option>
-                                <option value="2" selected>2</option>
-                                <option value="3">3</option>
-                            </select>
-                        </div>
-                        <div class="icon-chip wide"><img id="display_length_img" src="assets/length_2.webp" alt=""></div>
-                    </div>
-                </div>
-
-                <div class="field">
-                    <label class="lab">Complexity</label>
-                    <div class="control">
-                        <div class="select-shell">
-                            <select id="select_complexity">
-                                <option value="1">1</option>
-                                <option value="2" selected>2</option>
-                                <option value="3">3</option>
-                            </select>
-                        </div>
-                        <div class="icon-chip wide"><img id="display_complexity_img" src="assets/complexity_2.webp" alt=""></div>
-                    </div>
-                </div>
-
-                <div class="field full">
                     <label class="lab">Anomaly</label>
-                    <div class="select-shell">
-                        <select id="select_anomaly">
-                            <option value="None">None</option>
-                            <option value="Blood Sugar">Blood Sugar</option>
-                            <option value="Critical Weakness">Critical Weakness</option>
-                            <option value="Double XP">Double XP</option>
-                            <option value="Gold Rush">Gold Rush</option>
-                            <option value="Golden Bugs">Golden Bugs</option>
-                            <option value="Low Gravity">Low Gravity</option>
-                            <option value="Mineral Mania">Mineral Mania</option>
-                            <option value="Rich Atmosphere">Rich Atmosphere</option>
-                            <option value="Secret Secondary">Secret Secondary</option>
-                            <option value="Volatile Guts">Volatile Guts</option>
-                        </select>
+                    <div class="control">
+                        <div class="select-shell"><select id="select_anomaly"></select></div>
+                        <div class="icon-chip empty" id="icon_anomaly"></div>
                     </div>
                 </div>
+
+                <div class="field"></div>
 
                 <div class="field">
                     <label class="lab">Warning 1</label>
                     <div class="control">
-                        <div class="select-shell">
-                            <select id="select_warning_1" class="warning-select"></select>
-                        </div>
+                        <div class="select-shell"><select id="select_warning_1"></select></div>
                         <div class="icon-chip empty" id="icon_warning_1"></div>
                     </div>
                 </div>
@@ -162,9 +126,7 @@
                 <div class="field">
                     <label class="lab">Warning 2</label>
                     <div class="control">
-                        <div class="select-shell">
-                            <select id="select_warning_2" class="warning-select"></select>
-                        </div>
+                        <div class="select-shell"><select id="select_warning_2"></select></div>
                         <div class="icon-chip empty" id="icon_warning_2"></div>
                     </div>
                 </div>
@@ -192,31 +154,23 @@
                         <span class="chip"><input type="checkbox" id="select_data_cell"><label for="select_data_cell"><span class="tick">✓</span>Data Cell</label></span>
                         <span class="chip"><input type="checkbox" id="select_nemesis"><label for="select_nemesis"><span class="tick">✓</span>Nemesis</label></span>
                         <span class="chip"><input type="checkbox" id="select_doretta_head"><label for="select_doretta_head"><span class="tick">✓</span>Doretta Head Returned</label></span>
-                        <!-- NEW (Season 06): Ossium Bone Collector Lair -->
-                        <span class="chip"><input type="checkbox" id="select_bone_collector"><label for="select_bone_collector"><span class="tick">✓</span>Ossium Bone Collector Lair <span class="todo-flag">NEW</span></label></span>
+                        <span class="chip"><input type="checkbox" id="select_bone_collector"><label for="select_bone_collector"><span class="tick">✓</span>Ossium Bone Collector Lair</label></span>
                     </div>
                 </div>
 
             </div>
-
-            <div class="note">
-                Heavy Extraction, Ossuary Depths, the new warnings, and the Bone Collector Lair use
-                <code>// TODO</code> placeholder values in <code>scoring.js</code> &mdash; tune them to taste.
-            </div>
         </section>
 
-        <!-- ============ SCORE / ACTION CARD ============ -->
-        <section class="card">
-            <h2>Score</h2>
+        <!-- ============ SCORE BREAKDOWN CARD ============ -->
+        <section class="card score-card">
+            <h2>Score Breakdown</h2>
+            <div class="breakdown" id="breakdown"></div>
             <div class="preview-score">
-                <span class="lbl">Live Score</span>
+                <span class="lbl">Final Score</span>
                 <span class="val" id="live_score">—</span>
             </div>
             <button class="btn-add" onclick="add_run()">+ ADD MISSION</button>
-            <p class="note">
-                Enter a valid <code>MM:SS</code> time to compute. Logged missions persist in your
-                browser (localStorage) so your session survives a refresh.
-            </p>
+            <p class="note">Logged missions persist in your browser. Use <code>Import / Export CSV</code> below to keep a save file.</p>
         </section>
 
     </div>
@@ -233,7 +187,12 @@
     <section class="card runs-card">
         <div class="runs-head">
             <h2>Logged Missions</h2>
-            <button class="btn-clear" onclick="clear_runs()">CLEAR ALL</button>
+            <div class="runs-actions">
+                <input type="file" id="csv_input" accept=".csv,text/csv" hidden onchange="import_csv(event)">
+                <button class="btn-clear" onclick="document.getElementById('csv_input').click()">⬆ IMPORT CSV</button>
+                <button class="btn-clear" onclick="export_csv()">⬇ EXPORT CSV</button>
+                <button class="btn-clear danger" onclick="clear_runs()">CLEAR ALL</button>
+            </div>
         </div>
         <div class="table-scroll">
             <table class="runs">
@@ -262,24 +221,5 @@
     </section>
 
 </div>
-
-<!-- Populate both warning dropdowns from a single source so they never drift -->
-<script>
-(function () {
-    const WARNINGS = [
-        "None", "Cave Leech Cluster", "Duck and Cover", "Ebonite Outbreak", "Elite Threat",
-        "Exploder Infestation", "Haunted Cave", "Lethal Enemies", "Low Oxygen", "Mactera Plague",
-        "Parasites", "Regenerative Bugs", "Rival Presence", "Shield Disruption", "Swarmageddon",
-        "Lithophage Outbreak",
-        "Core Corruption", "Pit Jaw Colony", "Scrab Nesting Grounds" // NEW (Season 06)
-    ];
-    const NEW = new Set(["Core Corruption", "Pit Jaw Colony", "Scrab Nesting Grounds"]);
-    document.querySelectorAll(".warning-select").forEach(sel => {
-        sel.innerHTML = WARNINGS.map(w =>
-            `<option value="${w}">${w}${NEW.has(w) ? "  (NEW)" : ""}</option>`).join("");
-    });
-})();
-</script>
-
 </body>
 </html>

@@ -49,7 +49,7 @@ body {
 }
 
 .wrap {
-    max-width: 1180px;
+    max-width: 1300px;
     margin: 0 auto;
     padding: 28px 20px 80px;
 }
@@ -315,6 +315,101 @@ select option {
     text-shadow: 0 0 22px rgba(180,235,61,0.3);
     line-height: 1;
 }
+.preview-score .val.dim { color: var(--text-dim); text-shadow: none; }
+
+/* ---------------- hazard 5+ panel ---------------- */
+.select-shell.sm { width: 64px; flex: 0 0 auto; }
+.select-shell.sm select { padding: 9px 26px 9px 11px; }
+
+.haz5 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+    align-items: flex-end;
+    background: var(--surface-3);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    padding: 14px;
+}
+.haz5-mod { display: flex; flex-direction: column; gap: 6px; }
+.haz5-name {
+    font-size: 11px;
+    color: var(--text);
+    letter-spacing: 0.03em;
+}
+.haz5-name em {
+    font-style: normal;
+    color: var(--text-dim);
+    margin-left: 4px;
+}
+.haz5-eff {
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+}
+.haz5-val {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 1;
+    color: var(--blinding);
+    text-shadow: 0 0 18px rgba(180,235,61,0.3);
+}
+
+/* ---------------- score breakdown ---------------- */
+.breakdown { margin-bottom: 16px; }
+.bd-group {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+.bd-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 9px 13px;
+    border-bottom: 1px solid var(--line-soft);
+    font-size: 13px;
+}
+.bd-row:last-child { border-bottom: none; }
+.bd-k {
+    font-family: var(--display);
+    letter-spacing: 0.05em;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+}
+.bd-k em {
+    font-style: normal;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    color: var(--text-dim);
+    letter-spacing: 0;
+    margin-top: 1px;
+}
+.bd-v {
+    font-family: var(--mono);
+    font-weight: 700;
+    color: var(--brightest);
+}
+.bd-v.mult { color: #7fd0ff; }
+.bd-row.subtotal {
+    background: rgba(142,191,36,0.07);
+}
+.bd-row.subtotal .bd-k { color: var(--brightest); letter-spacing: 0.1em; text-transform: uppercase; font-size: 12px; }
+.bd-row.subtotal .bd-v { color: var(--blinding); font-size: 15px; }
+
+/* ---------------- csv / runs actions ---------------- */
+.runs-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.btn-clear.danger:hover { color: #ff8b76; border-color: rgba(255,139,118,0.5); }
+
+/* table icons */
+.mt-ic { width: 26px; height: 26px; object-fit: contain; flex: 0 0 auto; }
+.bi-ic { width: 22px; height: 22px; object-fit: contain; flex: 0 0 auto; }
+.mut-ic { width: 18px; height: 18px; object-fit: contain; }
 
 .btn-add {
     width: 100%;
@@ -400,8 +495,8 @@ select option {
 table.runs {
     width: 100%;
     border-collapse: collapse;
-    font-size: 13px;
-    min-width: 880px;
+    font-size: 12.5px;
+    min-width: 940px;
 }
 table.runs th {
     position: sticky; top: 0;
@@ -409,16 +504,16 @@ table.runs th {
     font-family: var(--display);
     font-weight: 600;
     font-size: 10.5px;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--text-dim);
     background: var(--surface-3);
-    padding: 12px 14px;
+    padding: 11px 10px;
     border-bottom: 1px solid var(--line);
     white-space: nowrap;
 }
 table.runs td {
-    padding: 11px 14px;
+    padding: 9px 10px;
     border-bottom: 1px solid var(--line-soft);
     color: var(--text);
     white-space: nowrap;
