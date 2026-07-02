@@ -190,7 +190,7 @@ const WARNING_MULTIPLIERS = {
     "Lithophage Outbreak": 1.170,
     "Core Corruption": 1.185,
     "Pit Jaw Colony": 1.110,
-    "Scrab Nesting Grounds": 1.085,
+    "Scrab Nesting Grounds": 1.135,
     [NONE]: 1,
 };
 const WARNING_ORDER = [NONE, ...Object.keys(WARNING_MULTIPLIERS).filter(k => k !== NONE).sort()];
